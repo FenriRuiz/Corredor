@@ -1,5 +1,4 @@
 import networkx as nx 
-import sys
 '''FUNCIONES'''
 def perteneceNodo(osmidnodo):
 	for id, osmid in nodosEx.items():
@@ -9,7 +8,8 @@ def perteneceNodo(osmidnodo):
 
 '''CREACION DEL GRAFO Y POBLACIÓN DEL MISMO'''
 g = nx.Graph()
-g = nx.read_graphml("Migueltura.graphml")
+
+g= nx.read_graphml("Migueltura.graphml")
 
 ''' OBTENEMOS LOS NODOS EXISTENTES'''
 nodosEx = nx.get_node_attributes(g, 'osmid')
