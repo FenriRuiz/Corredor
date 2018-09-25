@@ -1,5 +1,5 @@
 import networkx as nx 
-'''FUNCIONES'''
+'''FUNCIONES :)'''
 def perteneceNodo(osmidnodo):
 	for id, osmid in nodosEx.items():
 		if osmid == osmidnodo:
