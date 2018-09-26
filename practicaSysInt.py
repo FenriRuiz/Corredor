@@ -1,21 +1,25 @@
 import networkx as nx 
-'''FUNCIONES :)'''
-def perteneceNodo(osmidnodo):
-	for id, osmid in nodosEx.items():
-		if osmid == osmidnodo:
-			return True
-	return False
 
-'''CREACION DEL GRAFO Y POBLACIÓN DEL MISMO'''
-g = nx.Graph()
+class grafo():
+	graph=nx.Graph()
+	nodes=None
+	def __init__(self,file):
+		self.graph=nx.read_graphml(file)
+		self.nodes=nx.get_node_attributes(self.graph,'osmid')
+	def perteneceNodo(self,osmid_node):
+		for id,osmid in self.nodes.items():
+			if osmid == osmid_node:
+				return True
+		return False
 
-g= nx.read_graphml("Migueltura.graphml")
-
-''' OBTENEMOS LOS NODOS EXISTENTES'''
-nodosEx = nx.get_node_attributes(g, 'osmid')
-
-'''EJEMPLO OSMID EXISTENTE: 847673135''' 
 osmid = "847673135"
-print(perteneceNodo(osmid))
+file="Migueltura.graphml"
+g=grafo(file)
+print(g.perteneceNodo(osmid))
+
+
+
+
+
 
 
