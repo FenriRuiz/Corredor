@@ -9,14 +9,17 @@ class grafo():
 	def perteneceNodo(self,osmid_node):
 		return osmid_node in self.nodes
 	def posicionNodo(self,osmid_node):
-		posicion=[]
-		posicion.append(self.graph._node[osmid_node])
-		return posicion
+		if(self.perteneceNodo(osmid_node)):
+			posicion=[]
+			posicion.append(self.graph._node[osmid_node])
+			return posicion
+		else:
+			return "Error, el nodo no existe"
 osmid = "847673135"
 file="Migueltura.graphml"
 g=grafo(file)
 print(g.perteneceNodo(osmid))
-print(g.posicionNodo(osmid))
+print(g.posicionNodo(osmid_node))
 
 
 
