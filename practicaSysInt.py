@@ -19,7 +19,7 @@ osmid = "847673135"
 file="Migueltura.graphml"
 g=grafo(file)
 print(g.perteneceNodo(osmid))
-print(g.posicionNodo(osmid_node))
+print(g.posicionNodo(osmid))
 
 
 
