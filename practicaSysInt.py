@@ -25,12 +25,12 @@ class grafo():
 		listaAristas=[]
 		if(self.perteneceNodo(osmid_node)):
 			for edge in self.graph.edges._adjdict[osmid_node]:
-				a=arista()
+				ar=arista()
 				arista.nodo_inicial=osmid_node
 				arista.nodo_final=edge
 				arista.nombre=self.graph.edges._adjdict[osmid_node][edge][0]['name']
 				arista.longitud=self.graph.edges._adjdict[osmid_node][edge][0]['length']
-				listaAristas.append(a)
+				listaAristas.append(ar)
 		else:
 			return "Error, el nodo no existe"
 		return listaAristas
