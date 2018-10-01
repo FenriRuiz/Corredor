@@ -5,6 +5,12 @@ class arista():
 	nodo_final=None
 	nombre=None
 	longitud=None
+	def __str__(self):
+		x = self.nodo_inicial
+		y = self.nodo_final
+		z = self.nombre
+		t = self.longitud
+		return "Nodo inicial: {0}\n Nodo final: {1}\n Nombre arista: {2}\n Longitud arista: {3}".format(x, y, z, t)
 
 class grafo():
 	graph=nx.Graph()
@@ -41,7 +47,10 @@ file="Migueltura.graphml"
 g=grafo(file)
 print(g.perteneceNodo(osmid))
 print(g.posicionNodo(osmid))
-print(g.adyacentesNodo(osmid))
+#lista = g.adyacentesNodo
+for i in g.adyacentesNodo:
+	print(i.arista.__str__())
+
 
 
 
