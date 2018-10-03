@@ -25,7 +25,8 @@ class grafo():
 				self.graph.edges._adjdict[nodo_inicial][nodo_final][0]['length']]
 				listaAristas.append(arista)
 		else:
-			return "Error, el nodo no existe"
+			print("Error, el nodo no existe")
+			return listaAristas
 		return listaAristas
 
 
@@ -34,6 +35,7 @@ file="Migueltura.graphml"
 g=grafo(file)
 
 #print(g.perteneceNodo(osmid))
+print(g.perteneceNodo(osmid))
 print("Posición del nodo inicial:")
 print(g.posicionNodo(osmid))
 print("Lista de aristas adyacentes (Nodo inicial, Nodo final, Nombre, Longitud):")
