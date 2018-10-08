@@ -30,11 +30,10 @@ class grafo():
 		return listaAristas
 
 
-osmid = "1128335617"
-file="Migueltura.graphml"
+osmid = "946409159"
+file="Anchuras.graphml"
 g=grafo(file)
 
-#print(g.perteneceNodo(osmid))
 print(g.perteneceNodo(osmid))
 print("Posición del nodo inicial:")
 print(g.posicionNodo(osmid))
