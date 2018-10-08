@@ -19,10 +19,12 @@ class grafo():
 		listaAristas=[]
 		if(self.perteneceNodo(nodo_inicial)):
 			for nodo_final in self.graph.edges._adjdict[nodo_inicial]:
-				arista=[nodo_inicial,
-				nodo_final,
-				self.graph.edges._adjdict[nodo_inicial][nodo_final][0]['name'],
-				self.graph.edges._adjdict[nodo_inicial][nodo_final][0]['length']]
+				try:
+					nombre= self.graph.edges._adjdict[nodo_inicial][nodo_final][0]['name']
+				except KeyError:
+					nombre='SinNombre'
+				arista=({'nInicial' : nodo_inicial,'nFinal' : nodo_final, 'nombre' : nombre, 
+				'longitud' : self.graph.edges._adjdict[nodo_inicial][nodo_final][0]['length']})
 				listaAristas.append(arista)
 				'''Cambiar el name y ver si podemos devolverlo como una cuadrupleta'''
 		else:
