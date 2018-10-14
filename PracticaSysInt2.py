@@ -1,5 +1,7 @@
 import networkx as nx 
 import hashlib
+import json
+import sys
 
 class Estado():
     def __init__(self, osmid_node, listaFrontera, idCode):
@@ -21,3 +23,12 @@ class EspacioEstados():
         costeAcci = Estado.listaFrontera
     def esta(self, osmid_node):
         return osmid_node in self.nodes
+class Problema():
+    def __init__(self, EspacioEstados):
+        self.EspacioEstados = EspacioEstados
+    def estadoInicial(self, filejson):
+        json
+class Frontera():
+    def __init__(self, listaFrontera):
+        ''' Crea la lista frontera vacía y establece el criterio de ordenación '''
+        self.listaFrontera = []
