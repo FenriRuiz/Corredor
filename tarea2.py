@@ -3,7 +3,7 @@ import hashlib
 import json
 ##
 ##TAREA 1
-class grafo():
+class Grafo():
 	graph=nx.Graph()
 	nodes=None
 	def __init__(self,file):
@@ -53,28 +53,28 @@ class Estado:
 # problema=json.loads(datos)
 
 # es=estado(problema['IntSt'])
-# print('')
+# print('') 
 class EspacioEstados:
-    
     def __init__(self,file):
-        self.graph=grafo(file)
+        self.graph=Grafo(file)
         self.listaEstados=[]
-        self.sucesiones=[]
-    def Sucesores(self,estado):
-        for nodoDestino in estado.frontera:
+    def sucesores(self, Estado, graph):
+        nodosAdy = graph.adyacentesNodo(Estado.nodoActual)
+        for nodoAdy in nodosAdy:    
             #Hay que hacer funcion recursiva que llame a Sucesores y pille los adyacentes del nodo de estado y los añada
             #a listaEstados
-            accion="Estoy en "+estado.identificador+" y voy a "+nodoDestino
-            sucesion=(accion,estado(nodoDestino),1)
-            #Hace falta calcular el coste
-            self.sucesiones.append(sucesion)
+            accion = "Estoy en " + nodoAdy['nInicial'] + " y voy a "+ nodoAdy['nFinal']
+            coste = nodoAdy['length']
+            #Obtenemos el coste y el nodo al que vamos de la arista
+            sucesion=(accion,Estado(nodoAdy['nFinal']),coste)
+            self.listaEstados.append(sucesion)
     def esta(self,estado):
-        return estado in self.sucesiones
+        return estado in self.listaEstados
 
     
 class Problema:
     def __init__(self,json):
-        self.espacioEstados=EspacioEstados(json['graphlmfile'])
+        self.espacioEstados= EspacioEstados(json['graphlmfile'])
         self.estadoInicial=Estado(json['IntSt'])
     def esObjetivo(self,estado):
         if(not estado.listaPendientes):
@@ -82,19 +82,31 @@ class Problema:
         else:
             return False
 class NodoArbol:
-    def __init__(self, Estado):
-        self.Estado = Estado
-        self.costoCamino = 0
+    #A diferencia de java, no podemos poner varios constructores pero si valores por defecto.
+    def __init__(self, Estado, NodoArbol=0):
+        self.estado = Estado
+        self.costoCamino = NodoArbol.costoCamino 
         self.accion = 0
         self.profundidad = 0
         self.f = Estado.nodoActual
-    def __init__(self, Estado, NodoArbol):
-        self.Estado = Estado
-        self.costoCamino = NodoArbol.costoCamino + Estado.suc
 
 class Frontera:
-    def __init__(self, )
+    def __init__(self):
+        self.frontera = []
+    def insert(self, NodoArbol, frontera):
+        frontera.append(NodoArbol)
+    def delete(self, frontera):
+        return frontera.pop() 
+    def isEmpty(self, frontera):
+        if(not frontera):
+            return True
+        else:
+            return False
 
 
+data = open("fichero.json", "r")
+datos = data.read()
+data_string = json.loads(datos)
+Problema(data_string)
 
 

@@ -43,4 +43,4 @@ print(g.posicionNodo(osmid))
 print("Lista de aristas adyacentes (Nodo inicial, Nodo final, Nombre, Longitud):")
 
 for i in (g.adyacentesNodo(osmid)):
-	print(i)
+	print(i['nFinal'])
