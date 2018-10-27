@@ -34,8 +34,6 @@ class Grafo():
 			print("Error, el nodo no existe")
 			return listaAristas
 		return listaAristas
-##
-
 
 class Estado:
     def __init__(self,nodoOSM):
@@ -48,18 +46,13 @@ class Estado:
         for nodo in self.listaPendientes:
             h.update(nodo.encode())
         return h.hexdigest()
-# data=open("fichero.json","r")
-# datos=data.read()
-# problema=json.loads(datos)
 
-# es=estado(problema['IntSt'])
-# print('') 
 class EspacioEstados:
     def __init__(self,file):
         self.graph=Grafo(file)
         self.listaEstados=[]
-    def sucesores(self, Estado, graph):
-        nodosAdy = graph.adyacentesNodo(Estado.nodoActual)
+    def sucesores(self, Estado):
+        nodosAdy = self.graph.adyacentesNodo(Estado.nodoActual)
         for nodoAdy in nodosAdy:    
             #Hay que hacer funcion recursiva que llame a Sucesores y pille los adyacentes del nodo de estado y los añada
             #a listaEstados
@@ -104,9 +97,19 @@ class Frontera:
             return False
 
 
-data = open("fichero.json", "r")
+'''data = open("fichero.json", "r")
 datos = data.read()
 data_string = json.loads(datos)
-Problema(data_string)
+Problema(data_string)'''
+
+data=open("fichero.json","r")
+datos=data.read()
+problema=json.loads(datos)
+
+es=Estado(problema['IntSt'])
+print(es.nodoActual) 
+EspacioEstados.sucesores(es)
+for estado in EspacioEstados.listaEstados:
+    print(estado[0])
 
 
