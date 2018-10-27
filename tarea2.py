@@ -40,12 +40,12 @@ class grafo():
 class Estado:
     def __init__(self,nodoOSM):
         self.nodoActual=nodoOSM['node']
-        self.nodosPendientes=nodoOSM['listNodes']
+        self.listaPendientes=nodoOSM['listNodes']
         self.identificador=self.serializar()
     def serializar(self):
         h = hashlib.md5() 
         h.update(self.nodoActual.encode())
-        for nodo in self.nodosPendientes:
+        for nodo in self.listaPendientes:
             h.update(nodo.encode())
         return h.hexdigest()
 # data=open("fichero.json","r")
@@ -59,8 +59,9 @@ class EspacioEstados:
     def __init__(self,file):
         self.graph=grafo(file)
         self.listaEstados=[]
+        self.sucesiones=[]
     def Sucesores(self,estado):
-        for nodoDestino in estado.nodosPendientes:
+        for nodoDestino in estado.frontera:
             #Hay que hacer funcion recursiva que llame a Sucesores y pille los adyacentes del nodo de estado y los añada
             #a listaEstados
             accion="Estoy en "+estado.identificador+" y voy a "+nodoDestino
@@ -76,13 +77,23 @@ class Problema:
         self.espacioEstados=EspacioEstados(json['graphlmfile'])
         self.estadoInicial=Estado(json['IntSt'])
     def esObjetivo(self,estado):
-        if(not estado.nodosPendientes):
+        if(not estado.listaPendientes):
             return True
         else:
             return False
-# class NodoArbol:
-#     def __init__(self,espacioEstados):
-#         estado=espacioEstados.sucesiones[0]
+class NodoArbol:
+    def __init__(self, Estado):
+        self.Estado = Estado
+        self.costoCamino = 0
+        self.accion = 0
+        self.profundidad = 0
+        self.f = Estado.nodoActual
+    def __init__(self, Estado, NodoArbol):
+        self.Estado = Estado
+        self.costoCamino = NodoArbol.costoCamino + Estado.suc
+
+class Frontera:
+    def __init__(self, )
 
 
 

@@ -1,4 +1,5 @@
 import networkx as nx 
+import PracticaSysInt2
 
 class grafo():
 	graph=nx.Graph()
@@ -31,7 +32,6 @@ class grafo():
 			print("Error, el nodo no existe")
 			return listaAristas
 		return listaAristas
-
 
 osmid = "946409159"
 file="Anchuras.graphml"
