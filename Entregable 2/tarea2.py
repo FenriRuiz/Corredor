@@ -36,14 +36,14 @@ class Grafo():
 		return listaAristas
 
 class Estado:
-    def __init__(self,nodoOSM):
-        self.nodoActual=nodoOSM['node']
-        self.listaPendientes=nodoOSM['listNodes']
+    def __init__(self,nodoActual, nodosPendientes):
+        self.nodoActual=nodoActual #nodoOSM['node']
+        self.nodosPendientes=nodosPendientes #nodoOSM['listNodes']
         self.identificador=self.serializar()
     def serializar(self):
         h = hashlib.md5() 
         h.update(self.nodoActual.encode())
-        for nodo in self.listaPendientes:
+        for nodo in self.nodosPendientes:
             h.update(nodo.encode())
         return h.hexdigest()
 
@@ -67,13 +67,14 @@ class EspacioEstados:
     
 class Problema:
     def __init__(self,json):
-        self.espacioEstados= EspacioEstados(json['graphlmfile'])
-        self.estadoInicial=Estado(json['IntSt'])
-    def esObjetivo(self,estado):
-        if(not estado.listaPendientes):
+        self.espacioEstados=EspacioEstados(json['graphlmfile'])
+        self.estadoInicial=Estado(json['IntSt']['node'], json['IntSt']['listNodes'])
+    def esObjetivo(self, Estado):
+        if(not Estado.listaPendientes):
             return True
         else:
             return False
+
 class NodoArbol:
     #A diferencia de java, no podemos poner varios constructores pero si valores por defecto.
     def __init__(self, Estado, NodoArbol=0):
@@ -101,18 +102,6 @@ class Frontera:
         else: # Frontera.orderBy == 'idNodo'
             sorted(frontera, key = lambda NodoArbol: NodoArbol[0])
 
-        # switch(Frontera.orderBy){
-        #     case 'profundidad':
-        #         sorted(frontera, key = lambda NodoArbol: NodoArbol[3])
-        #         break
-        #     case 'coste':
-        #         sorted(frontera, key = lambda NodoArbol: NodoArbol[1])
-        #         break
-        #     default:
-        #         sorted(frontera, key = lambda NodoArbol: NodoArbol[0])
-        #         break 
-        # }
-
     def delete(self, frontera):
         if(not frontera.isEmpty):
             return frontera.pop(0)
@@ -134,7 +123,7 @@ data=open("fichero.json","r")
 datos=data.read()
 problema=json.loads(datos)
 
-es=Estado(problema['IntSt'])
+es=Estado(problema['IntSt']['nodes'], problema['IntSt']['listNodes'])
 print(es.nodoActual) 
 
 
