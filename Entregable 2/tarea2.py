@@ -50,9 +50,9 @@ class Estado:
 class EspacioEstados:
     def __init__(self,file):
         self.graph=Grafo(file)
-        self.listaEstados=[]
     def sucesores(self, Estado):
         nodosAdy = self.graph.adyacentesNodo(Estado.nodoActual)
+        listaEstados=[]
         for nodoAdy in nodosAdy:    
             #Hay que hacer funcion recursiva que llame a Sucesores y pille los adyacentes del nodo de estado y los añada
             #a listaEstados
@@ -64,9 +64,9 @@ class EspacioEstados:
                     listaPendientes.append(nodo)
             #Obtenemos el coste y el nodo al que vamos de la arista
             sucesion=(accion,Estado(nodoAdy['nFinal'], Estado.nodosPendientes),coste)
-            self.listaEstados.append(sucesion)
+        return listaEstados.append(sucesion)
     def esta(self,estado):
-        return estado in self.listaEstados
+        return self.graph.perteneceNodo(estado.nodoActual)
 
     
 class Problema:
@@ -81,30 +81,25 @@ class Problema:
 
 class NodoArbol:
     #A diferencia de java, no podemos poner varios constructores pero si valores por defecto.
-    def __init__(self, Estado, NodoPadre):
+    def __init__(self, Estado, nodoPadre, espacioBusqueda):
         self.estado = Estado
-        if NodoArbol == 0:
+        self.nodoPadre = nodoPadre
+        if nodoPadre == None:
             self.costoCamino = 0 
             self.accion = 'Estoy en la raiz'
             self.profundidad = 0
         else:
-            self.costoCamino = NodoPadre.costoCamino # +  
-            self.accion = ''#Acción del ¿espacio de estados?
-            self.profundidad = NodoPadre.profundidad # +
+            self.costoCamino=nodoPadre.costoCamino+espacioBusqueda[2]
+            self.accion="Estuve en "+nodoPadre.estado.nodoActual+" y ahora estoy en "+self.estado.nodoActual
+            self.profundidad=nodoPadre.profundidad+1
         self.f = Estado.nodoActual
 
 class Frontera:
     def __init__(self, orden='idNodo'):
         self.frontera = []
-        self.orderBy = orden
     def insert(self, NodoArbol, frontera):
         frontera.append(NodoArbol)
-        if self.orderBy == 'profundidad':
-            sorted(frontera, key = lambda NodoArbol: NodoArbol[3])
-        elif self.orderBy == 'coste':
-            sorted(frontera, key = lambda NodoArbol: NodoArbol[1])
-        else: # Frontera.orderBy == 'idNodo'
-            sorted(frontera, key = lambda NodoArbol: NodoArbol[0])
+        sorted(frontera, key = lambda NodoArbol: NodoArbol[4])
 
     def delete(self, frontera):
         if(not frontera.isEmpty):
@@ -128,6 +123,7 @@ datos=data.read()
 problema=json.loads(datos)
 
 es=Estado(problema['IntSt']['nodes'], problema['IntSt']['listNodes'])
+front = Frontera
 print(es.nodoActual) 
 
 
