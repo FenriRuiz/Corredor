@@ -56,10 +56,14 @@ class EspacioEstados:
         for nodoAdy in nodosAdy:    
             #Hay que hacer funcion recursiva que llame a Sucesores y pille los adyacentes del nodo de estado y los añada
             #a listaEstados
+            listaPendientes=[]
             accion = "Estoy en " + nodoAdy['nInicial'] + " y voy a "+ nodoAdy['nFinal']
             coste = nodoAdy['length']
+            for nodo in Estado.nodosPendientes:
+                if nodo != nodoAdy:
+                    listaPendientes.append(nodo)
             #Obtenemos el coste y el nodo al que vamos de la arista
-            sucesion=(accion,Estado(nodoAdy['nFinal']),coste)
+            sucesion=(accion,Estado(nodoAdy['nFinal'], Estado.nodosPendientes),coste)
             self.listaEstados.append(sucesion)
     def esta(self,estado):
         return estado in self.listaEstados
@@ -77,16 +81,16 @@ class Problema:
 
 class NodoArbol:
     #A diferencia de java, no podemos poner varios constructores pero si valores por defecto.
-    def __init__(self, Estado, NodoArbol=0):
+    def __init__(self, Estado, NodoPadre):
         self.estado = Estado
         if NodoArbol == 0:
             self.costoCamino = 0 
             self.accion = 'Estoy en la raiz'
             self.profundidad = 0
         else:
-            self.costoCamino = NodoArbol.costoCamino # +  
+            self.costoCamino = NodoPadre.costoCamino # +  
             self.accion = ''#Acción del ¿espacio de estados?
-            self.profundidad = NodoArbol.profundidad # +
+            self.profundidad = NodoPadre.profundidad # +
         self.f = Estado.nodoActual
 
 class Frontera:
