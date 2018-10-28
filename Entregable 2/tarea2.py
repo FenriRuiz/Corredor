@@ -100,7 +100,7 @@ class Frontera:
             sorted(frontera, key = lambda NodoArbol: NodoArbol[1])
         else: # Frontera.orderBy == 'idNodo'
             sorted(frontera, key = lambda NodoArbol: NodoArbol[0])
-            
+
         # switch(Frontera.orderBy){
         #     case 'profundidad':
         #         sorted(frontera, key = lambda NodoArbol: NodoArbol[3])
@@ -116,7 +116,8 @@ class Frontera:
     def delete(self, frontera):
         if(not frontera.isEmpty):
             return frontera.pop(0)
-        
+        else:
+            return 0
     def isEmpty(self, frontera):
         if(not frontera):
             return True
