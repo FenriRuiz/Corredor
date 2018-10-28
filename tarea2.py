@@ -78,18 +78,45 @@ class NodoArbol:
     #A diferencia de java, no podemos poner varios constructores pero si valores por defecto.
     def __init__(self, Estado, NodoArbol=0):
         self.estado = Estado
-        self.costoCamino = NodoArbol.costoCamino 
-        self.accion = 0
-        self.profundidad = 0
+        if NodoArbol == 0:
+            self.costoCamino = 0 
+            self.accion = 'Estoy en la raiz'
+            self.profundidad = 0
+        else:
+            self.costoCamino = NodoArbol.costoCamino # +  
+            self.accion = ''#Acción del ¿espacio de estados?
+            self.profundidad = NodoArbol.profundidad # +
         self.f = Estado.nodoActual
 
 class Frontera:
-    def __init__(self):
+    def __init__(self, orden='idNodo'):
         self.frontera = []
+        self.orderBy = orden
     def insert(self, NodoArbol, frontera):
         frontera.append(NodoArbol)
+        if self.orderBy == 'profundidad':
+            sorted(frontera, key = lambda NodoArbol: NodoArbol[3])
+        elif self.orderBy == 'coste':
+            sorted(frontera, key = lambda NodoArbol: NodoArbol[1])
+        else: # Frontera.orderBy == 'idNodo'
+            sorted(frontera, key = lambda NodoArbol: NodoArbol[0])
+            
+        # switch(Frontera.orderBy){
+        #     case 'profundidad':
+        #         sorted(frontera, key = lambda NodoArbol: NodoArbol[3])
+        #         break
+        #     case 'coste':
+        #         sorted(frontera, key = lambda NodoArbol: NodoArbol[1])
+        #         break
+        #     default:
+        #         sorted(frontera, key = lambda NodoArbol: NodoArbol[0])
+        #         break 
+        # }
+
     def delete(self, frontera):
-        return frontera.pop() 
+        if(not frontera.isEmpty):
+            return frontera.pop(0)
+        
     def isEmpty(self, frontera):
         if(not frontera):
             return True
@@ -108,8 +135,6 @@ problema=json.loads(datos)
 
 es=Estado(problema['IntSt'])
 print(es.nodoActual) 
-EspacioEstados.sucesores(es)
-for estado in EspacioEstados.listaEstados:
-    print(estado[0])
+
 
 
