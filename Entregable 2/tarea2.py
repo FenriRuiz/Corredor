@@ -56,15 +56,15 @@ class EspacioEstados:
         for nodoAdy in nodosAdy:    
             #Hay que hacer funcion recursiva que llame a Sucesores y pille los adyacentes del nodo de estado y los añada
             #a listaEstados
-            listaPendientes=[]
-            accion = "Estoy en " + nodoAdy['nInicial'] + " y voy a "+ nodoAdy['nFinal']
+            listaPendientes=Estado.nodosPendientes
+            accion = "Estoy en " + nodoAdy['nInicial'] + " y voy a "+ nodoAdy['nFinal']+" via:"+nodoAdy['nombre ']
             coste = nodoAdy['length']
-            for nodo in Estado.nodosPendientes:
-                if nodo != nodoAdy:
-                    listaPendientes.append(nodo)
+            if(nodo in Estado.nodosPendientes):
+                listaPendientes.remove(nodo)
             #Obtenemos el coste y el nodo al que vamos de la arista
-            sucesion=(accion,Estado(nodoAdy['nFinal'], Estado.nodosPendientes),coste)
-        return listaEstados.append(sucesion)
+            sucesion=(accion,Estado(nodoAdy['nFinal'], listaPendientes),coste)
+            listaEstados.append(sucesion)
+        return listaEstados
     def esta(self,estado):
         return self.graph.perteneceNodo(estado.nodoActual)
 
