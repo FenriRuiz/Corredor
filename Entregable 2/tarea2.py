@@ -81,7 +81,7 @@ class Problema:
 
 class NodoArbol:
     #A diferencia de java, no podemos poner varios constructores pero si valores por defecto.
-    def __init__(self, Estado, nodoPadre, espacioBusqueda):
+    def __init__(self, Estado, nodoPadre, espacioBusqueda,f):
         self.estado = Estado
         self.nodoPadre = nodoPadre
         if nodoPadre == None:
@@ -92,7 +92,7 @@ class NodoArbol:
             self.costoCamino=nodoPadre.costoCamino+espacioBusqueda[2]
             self.accion="Estuve en "+nodoPadre.estado.nodoActual+" y ahora estoy en "+self.estado.nodoActual
             self.profundidad=nodoPadre.profundidad+1
-        self.f = Estado.nodoActual
+        self.f = f
 
 class Frontera:
     def __init__(self, orden='idNodo'):
