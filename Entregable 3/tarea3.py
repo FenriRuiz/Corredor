@@ -81,7 +81,7 @@ class Problema:
 
 class NodoArbol:
     #A diferencia de java, no podemos poner varios constructores pero si valores por defecto.
-    def __init__(self, Estado, nodoPadre, espacioBusqueda,f):
+    def __init__(self,nodoPadre,Estado,profundidad,costoCamino,f):
         self.estado = Estado
         self.nodoPadre = nodoPadre
         if nodoPadre == None:
@@ -95,22 +95,39 @@ class NodoArbol:
         self.f = f
 
 class Frontera:
-    def __init__(self, orden='idNodo'):
+    def __init__(self):
         self.frontera = []
-    def insert(self, NodoArbol, frontera):
+    def insert(self, NodoArbol):
         frontera.append(NodoArbol)
-        sorted(frontera, key = lambda NodoArbol: NodoArbol[4])
+        #sorted(frontera, key = lambda NodoArbol: NodoArbol[4])
 
-    def delete(self, frontera):
-        if(not frontera.isEmpty):
+    def delete(self):
+        if(not self.frontera.isEmpty):
             return frontera.pop(0)
         else:
             return 0
-    def isEmpty(self, frontera):
-        if(not frontera):
+    def isEmpty(self):
+        if(not self.frontera):
             return True
         else:
             return False
+
+class Busqueda:
+    self.prob=Problema("fichero.json")
+    def __init__(self):
+        self.frontera=Frontera()
+        self.nInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
+        self-frontera.insert(self.nInicial)
+        self.solucion=False
+    def busquedaAcotada(self,prob,estrategia,profMax):
+        while not self.solucion and not self.frontera.isEmpty():
+            nActual=self.frontera.delete()
+            if(prob.esObjetivo(nActual.estado)):
+                self.solucion=True
+            else:
+                listaEstados=prob.espacioEstados.sucesores(nActual.estado)
+                listaNodos=CreaListaNodosArbol #What is dis
+
 
 
 '''data = open("fichero.json", "r")
