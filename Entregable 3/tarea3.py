@@ -117,14 +117,16 @@ class Frontera:
 datos = data.read()
 data_string = json.loads(datos)
 Problema(data_string)'''
+def main():
+    data=open("fichero.json","r")
+    datos=data.read()
+    prob=Problema(json.loads(datos))
 
-data=open("fichero.json","r")
-datos=data.read()
-problema=json.loads(datos)
-
-es=Estado(problema['IntSt']['nodes'], problema['IntSt']['listNodes'])
-front = Frontera
-print(es.nodoActual) 
-
+    # def __init__(self,json):
+    # self.espacioEstados=EspacioEstados(json['graphlmfile'])
+    # self.estadoInicial=Estado(json['IntSt']['node'], json['IntSt']['listNodes'])
+    print(prob.estadoInicial.nodoActual)
+ 
+main()
 
 
