@@ -89,7 +89,7 @@ class NodoArbol:
             self.accion = 'Estoy en la raiz'
             self.profundidad = 0
         else:
-            self.costoCamino=nodoPadre.costoCamino+espacioBusqueda[2]
+            self.costoCamino=nodoPadre.costoCamino+costoCamino #Actualizado a CostoCamino del nodoActual 
             self.accion="Estuve en "+nodoPadre.estado.nodoActual+" y ahora estoy en "+self.estado.nodoActual
             self.profundidad=nodoPadre.profundidad+1
         self.f = f
@@ -98,12 +98,12 @@ class Frontera:
     def __init__(self):
         self.frontera = []
     def insert(self, NodoArbol):
-        frontera.append(NodoArbol)
+        self.frontera.append(NodoArbol)
         #sorted(frontera, key = lambda NodoArbol: NodoArbol[4])
 
     def delete(self):
-        if(not self.frontera.isEmpty):
-            return frontera.pop(0)
+        if(not self.isEmpty()):
+            return self.frontera.pop(0)
         else:
             return 0
     def isEmpty(self):
@@ -112,38 +112,55 @@ class Frontera:
         else:
             return False
 
-class Busqueda:
-    self.prob=Problema("fichero.json")
-    def __init__(self):
-        self.frontera=Frontera()
-        self.nInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
-        self-frontera.insert(self.nInicial)
-        self.solucion=False
-    def busquedaAcotada(self,prob,estrategia,profMax):
-        while not self.solucion and not self.frontera.isEmpty():
-            nActual=self.frontera.delete()
-            if(prob.esObjetivo(nActual.estado)):
-                self.solucion=True
-            else:
-                listaEstados=prob.espacioEstados.sucesores(nActual.estado)
-                listaNodos=CreaListaNodosArbol #What is dis
+def creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia):
+    #something
+    return ""
+def creaSolucion(nodoActual):
+    '''La solución es:
+    Estrategia:uniforme
+    Total Nodos Generados:1888
+    Profundidad:36
+    costo:10871.6
+    Esto podría ser lo de creaSolucion'''
+    return ""
+
+def busquedaAcotada(prob,estrategia,profMax):
+    #No estoy seguro si se inicializan aquí todas las cosillas
+    frontera=Frontera()
+    nodoInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
+    frontera.insert(nodoInicial)
+    solucion=False
+
+    while solucion==False and not frontera.isEmpty():
+        nodoActual=frontera.delete()
+        if(prob.esObjetivo(nodoActual.estado)):
+            solucion=True
+        else:
+            listaEstados=prob.espacioEstados.sucesores(nodoActual.estado)
+            listaNodos=creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
+            frontera.insert(listaNodos) #Llamo a insert porque a un array le daría igual insertar un objeto que un array de objetos
+    if (solucion==True):
+        return creaSolucion(nodoActual)
+    else :
+        return "Sin solucion"
 
 
+def busqueda(prob,estrategia,profMax,incProf):
+    profActual=incProf
+    Solucion=""
+    while not Solucion and profActual <= profMax:
+        Solucion=busquedaAcotada(prob,estrategia,profActual)
+        profActual=profActual+incProf
+    return Solucion
 
-'''data = open("fichero.json", "r")
-datos = data.read()
-data_string = json.loads(datos)
-Problema(data_string)'''
-def main():
-    data=open("fichero.json","r")
-    datos=data.read()
-    prob=Problema(json.loads(datos))
 
-    # def __init__(self,json):
-    # self.espacioEstados=EspacioEstados(json['graphlmfile'])
-    # self.estadoInicial=Estado(json['IntSt']['node'], json['IntSt']['listNodes'])
-    print(prob.estadoInicial.nodoActual)
+data=open("fichero.json","r")
+datos=data.read()
+prob=Problema(json.loads(datos))
+
+
+    
  
-main()
+#main()
 
 
