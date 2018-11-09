@@ -6,8 +6,16 @@ from NodoArbol import NodoArbol
 from Problema import Problema
 
 def creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia):
-    #something
-    return ""
+    list = []
+    
+    for est in listaEstados:
+        p = nodoActual.profundidad+1
+        c = nodoActual.costoCamino + est.nodoActual['length']
+        f = -(nodoActual.profundidad+1)
+        nodoNuevo = NodoArbol(nodoActual, est, p, c, f)
+        list.append(nodoNuevo)
+
+    return list
 def creaSolucion(nodoActual):
     '''La solución es:
     Estrategia:uniforme
@@ -21,7 +29,7 @@ def busquedaAcotada(prob,estrategia,profMax):
     #No estoy seguro si se inicializan aquí todas las cosillas
     frontera=Frontera()
     nodoInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
-    frontera.insert(nodoInicial)
+    frontera.insert(nodoInicial, 0)
     solucion=False
 
     while solucion==False and not frontera.isEmpty():
@@ -29,9 +37,12 @@ def busquedaAcotada(prob,estrategia,profMax):
         if(prob.esObjetivo(nodoActual.estado)):
             solucion=True
         else:
-            listaEstados=prob.espacioEstados.sucesores(nodoActual.estado)
-            listaNodos=creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
-            frontera.insert(listaNodos) #Llamo a insert porque a un array le daría igual insertar un objeto que un array de objetos
+            listaEstados = prob.espacioEstados.sucesores(nodoActual.estado)
+            listaNodos= creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
+
+            for n in listaNodos:
+                frontera.insert(n, n.f)
+            # frontera.insert(listaNodos) #Llamo a insert porque a un array le daría igual insertar un objeto que un array de objetos
     if (solucion==True):
         return creaSolucion(nodoActual)
     else :
