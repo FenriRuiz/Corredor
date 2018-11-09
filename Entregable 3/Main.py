@@ -6,16 +6,22 @@ from Frontera import Frontera
 from NodoArbol import NodoArbol
 from Problema import Problema
 
+def calcularF(nodoActual,estrategia):
+    if(estrategia=="profundidad"):
+        return -(nodoActual.profundidad+1)
+    elif(estrategia=="anchura"):
+        return (nodoActual.profundidad+1)
+    elif(estrategia=="coste"):
+        return nodoActual.costoCamino
+
 def creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia):
     list = []
-    
-    for est in listaEstados:
-        p = nodoActual.profundidad+1
-        c = nodoActual.costoCamino + est.nodoActual['length']
-        f = -(nodoActual.profundidad+1)
-        nodoNuevo = NodoArbol(nodoActual, est, p, c, f)
+    for estado in listaEstados:
+        profundidad = nodoActual.profundidad+1
+        coste = nodoActual.costoCamino + estado.nodoActual['length']
+        f = calcularF(nodoActual,estrategia)
+        nodoNuevo = NodoArbol(nodoActual, estado, profundidad, coste, f)
         list.append(nodoNuevo)
-
     return list
 def creaSolucion(nodoActual):
     '''La solución es:
@@ -46,13 +52,13 @@ def busquedaAcotada(prob,estrategia,profMax):
     if (solucion==True):
         return creaSolucion(nodoActual)
     else :
-        return "Sin solucion"
+        return None
 
 
 def busqueda(prob,estrategia,profMax,incProf):
     profActual=incProf
-    Solucion=""
-    while not Solucion and profActual <= profMax:
+    Solucion=None
+    while Solucion==None and (profActual <= profMax):
         Solucion=busquedaAcotada(prob,estrategia,profActual)
         profActual=profActual+incProf
     return Solucion
@@ -78,31 +84,31 @@ while True:
 
     opcionMenu = input("")
     if opcionMenu == "1":
-        estrategia = opcionMenu
+        estrategia = "anchura"
         print("Digame la profundidad máxima")
-        profMax = input("")
+        profMax = int(input(""))
         incProf = 1
         busqueda(prob,estrategia,profMax,incProf)
     elif opcionMenu == "2":
-        estrategia = opcionMenu
+        estrategia = "profundidadSimple"
         print("Digame la profundidad máxima")
         profMax = input("")
         incProf = 1
         busqueda(prob,estrategia,profMax,incProf)
     elif opcionMenu == "3":
-        estrategia = opcionMenu
+        estrategia = "profundidadAcotada"
         print("Digame la profundidad máxima")
         profMax = input("")
         incProf = 1
         busqueda(prob,estrategia,profMax,incProf)
     elif opcionMenu == "4":
-        estrategia = opcionMenu
+        estrategia = "profundidadIterativa"
         print("Digame la profundidad máxima")
         profMax = input("")
         print("Digame la incremento en la profundidad")
         incProf = input("")
     elif opcionMenu == "5":
-        estrategia = opcionMenu
+        estrategia = "coste"
         print("Digame la profundidad máxima")
         profMax = input("")
         incProf = 1
