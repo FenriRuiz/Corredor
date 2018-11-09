@@ -1,5 +1,6 @@
 import networkx as nx 
 import json
+import os
 
 from Frontera import Frontera
 from NodoArbol import NodoArbol
@@ -26,7 +27,6 @@ def creaSolucion(nodoActual):
     return ""
 
 def busquedaAcotada(prob,estrategia,profMax):
-    #No estoy seguro si se inicializan aquí todas las cosillas
     frontera=Frontera()
     nodoInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
     frontera.insert(nodoInicial, 0)
@@ -57,8 +57,53 @@ def busqueda(prob,estrategia,profMax,incProf):
         profActual=profActual+incProf
     return Solucion
 
+def menu():
+    os.system('cls')
+    print("Seleccione la estrategia de búsqueda a usar")
+    print("\t 1 - Busqueda en ANCHURA")
+    print("\t 2 - Busqueda en PROFUNDIDAD SIMPLE")
+    print("\t 3 - Busqueda en PROFUNDIDAD ACOTADA")
+    print("\t 4 - Busqueda en PROFUNDIDAD ITERATIVA")
+    print("\t 5 - Busqueda por COSTE")
+    print("\t 9 - Salir")
+
+
 
 data=open("fichero.json","r")
 datos=data.read()
 prob=Problema(json.loads(datos))
 print("MENU")
+while True:
+    menu()
+
+    opcionMenu = input("")
+    if opcionMenu == "1":
+        estrategia = opcionMenu
+        print("Digame la profundidad máxima")
+        profMax = input("")
+        incProf = 1
+        busqueda(prob,estrategia,profMax,incProf)
+    elif opcionMenu == "2":
+        estrategia = opcionMenu
+        print("Digame la profundidad máxima")
+        profMax = input("")
+        incProf = 1
+        busqueda(prob,estrategia,profMax,incProf)
+    elif opcionMenu == "3":
+        estrategia = opcionMenu
+        print("Digame la profundidad máxima")
+        profMax = input("")
+        incProf = 1
+        busqueda(prob,estrategia,profMax,incProf)
+    elif opcionMenu == "4":
+        estrategia = opcionMenu
+        print("Digame la profundidad máxima")
+        profMax = input("")
+        print("Digame la incremento en la profundidad")
+        incProf = input("")
+    elif opcionMenu == "5":
+        estrategia = opcionMenu
+        print("Digame la profundidad máxima")
+        profMax = input("")
+        incProf = 1
+        busqueda(prob,estrategia,profMax,incProf)
