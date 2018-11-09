@@ -8,9 +8,7 @@ class EspacioEstados:
     def sucesores(self, Estado):
         nodosAdy = self.graph.adyacentesNodo(Estado.nodoActual)
         listaEstados=[]
-        for nodoAdy in nodosAdy:    
-            #Hay que hacer funcion recursiva que llame a Sucesores y pille los adyacentes del nodo de estado y los añada
-            #a listaEstados
+        for nodoAdy in nodosAdy:    ç
             listaPendientes=Estado.nodosPendientes
             accion = "Estoy en " + nodoAdy['nInicial'] + " y voy a "+ nodoAdy['nFinal']+" via:"+nodoAdy['nombre ']
             coste = nodoAdy['length']

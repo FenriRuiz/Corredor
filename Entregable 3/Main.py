@@ -50,4 +50,4 @@ def busqueda(prob,estrategia,profMax,incProf):
 data=open("fichero.json","r")
 datos=data.read()
 prob=Problema(json.loads(datos))
-print("Main hecho")
+print("MENU")
