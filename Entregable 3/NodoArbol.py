@@ -13,4 +13,5 @@ class NodoArbol:
             self.accion="Estuve en "+nodoPadre.estado.nodoActual+" y ahora estoy en "+self.estado.nodoActual
             self.profundidad=nodoPadre.profundidad+1
         self.f = f
+        #print(self.accion)
 

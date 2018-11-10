@@ -12,9 +12,12 @@ class EspacioEstados:
             listaPendientes=estado.listaPendientes
             accion = "Estoy en " + nodoAdy['nInicial'] + " y voy a "+ nodoAdy['nFinal']+" via:"+nodoAdy['nombre']
             coste = nodoAdy['longitud']
-            if nodoAdy in estado.listaPendientes:
-                listaPendientes.remove(nodoAdy)
+            if nodoAdy['nFinal'] in estado.listaPendientes:
+                listaPendientes.remove(nodoAdy['nFinal'])
+               # print(listaPendientes)   
             #Obtenemos el coste y el nodo al que vamos de la arista
+            print(accion)
+            
             estadoNuevo=Estado(nodoAdy['nFinal'],listaPendientes)
             sucesion=(accion,estadoNuevo,coste)
             listaEstados.append(sucesion)

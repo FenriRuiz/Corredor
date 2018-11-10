@@ -67,6 +67,17 @@ nodo3=frontera.delete()
 nodo4=frontera.delete()
 
 
+def creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia):
+    list = []
+    for estado in listaEstados:
+        profundidad = nodoActual.profundidad+1
+        coste = nodoActual.costoCamino + float(estado.nodoActual['longitud'])
+        f = calcularF(estrategia,coste, profundidad)
+        nodoNuevo = NodoArbol(nodoActual, estado, profundidad, coste, f)
+        list.append(nodoNuevo)
+    return list
+
+
 
 print('123')
 

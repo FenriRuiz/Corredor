@@ -20,15 +20,18 @@ def calcularF(estrategia,coste,profundidad):
     elif(estrategia==COST):
         return coste
 
-def creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia):
-    list = []
-    for estado in listaEstados:
+def creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia):
+    listNodosArbol=[]
+    for sucesion in listaSucesiones:
         profundidad = nodoActual.profundidad+1
-        coste = float(nodoActual.costoCamino) + float(estado.nodoActual['longitud'])
+        coste = float(nodoActual.costoCamino) + float(sucesion[2])
         f = calcularF(estrategia,coste, profundidad)
-        nodoNuevo = NodoArbol(nodoActual, estado, profundidad, coste, f)
-        list.append(nodoNuevo)
-    return list
+        
+        nodoNuevo = NodoArbol(nodoActual, sucesion[1], profundidad, coste, f)
+        
+        listNodosArbol.append(nodoNuevo)
+    
+    return listNodosArbol
 def creaSolucion(nodoActual):
     '''La solución es:
     Estrategia:uniforme
@@ -36,24 +39,49 @@ def creaSolucion(nodoActual):
     Profundidad:36
     costo:10871.6
     Esto podría ser lo de creaSolucion'''
+    print('polla')
     return ""
 
 def busquedaAcotada(prob,estrategia,profMax):
     frontera=Frontera()
     nodoInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
+    listCaminoNodos=[]
     frontera.insert(nodoInicial)
+    listCaminoNodos.append(nodoInicial)
     solucion=False
+    contNodos=0
 
     while solucion==False or not frontera.isEmpty():
         nodoActual=frontera.delete()
         if(prob.esObjetivo(nodoActual.estado)):
             solucion=True
         else:
-            listaEstados = prob.espacioEstados.sucesores(nodoActual.estado)
-            listaNodos= creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
-
+            listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
+            listaNodos= creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
+            contNodos=contNodos+listaNodos.__len__()
+            print(contNodos)
             for n in listaNodos:
                 frontera.insert(n)
+                    # else:
+                    #     if(n.f < nodo.f):
+                    #         frontera.frontera.remove(nodo)
+                    #         listCaminoNodos.remove(nodo)
+                    #         frontera.insert(n)
+                    #         listCaminoNodos.append(n)
+                # if(not (n.estado.nodoActual in listCaminoNodos)):
+                #     frontera.insert(n)
+                #     listCaminoNodos.append(n)
+                # else:
+                #     for  nodo in listCaminoNodos:
+                #         if(n.f < nodo.f):
+                #             frontera.frontera.remove(n)
+                #             listCaminoNodos.remove(n)
+                #             frontera.insert(n)
+                #             listCaminoNodos.append(n)
+                        
+                
+
+            
             # frontera.insert(listaNodos) #Llamo a insert porque a un array le daría igual insertar un objeto que un array de objetos
     if (solucion==True):
         return creaSolucion(nodoActual)
@@ -90,7 +118,7 @@ while True:
     opcionMenu = int(input(""))
     if opcionMenu == BFS:
         print("Digame la profundidad máxima")
-        profMax = int(input(""))
+        profMax = input("")
         incProf = 1
         busqueda(prob,BFS,profMax,incProf)
     elif opcionMenu == DFS:
