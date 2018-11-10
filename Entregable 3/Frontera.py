@@ -1,9 +1,9 @@
 class Frontera:
     def __init__(self):
         self.frontera = []
-    def insert(self, NodoArbol,f):
+    def insert(self, NodoArbol):
         self.frontera.append(NodoArbol)
-        sorted(self.frontera, key = lambda NodoArbol: NodoArbol[4])
+        self.frontera.sort(key = lambda x: x.f)
 
     def delete(self):
         if(not self.isEmpty()):
