@@ -1,5 +1,6 @@
+
 class NodoArbol:
-    #A diferencia de java, no podemos poner varios constructores pero si valores por defecto.
+
     def __init__(self,nodoPadre,Estado,profundidad,costoCamino,f):
         self.estado = Estado
         self.nodoPadre = nodoPadre
@@ -12,3 +13,4 @@ class NodoArbol:
             self.accion="Estuve en "+nodoPadre.estado.nodoActual+" y ahora estoy en "+self.estado.nodoActual
             self.profundidad=nodoPadre.profundidad+1
         self.f = f
+

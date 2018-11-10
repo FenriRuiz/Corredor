@@ -24,7 +24,7 @@ def creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia):
     list = []
     for estado in listaEstados:
         profundidad = nodoActual.profundidad+1
-        coste = nodoActual.costoCamino + estado.nodoActual['length']
+        coste = float(nodoActual.costoCamino) + float(estado.nodoActual['longitud'])
         f = calcularF(estrategia,coste, profundidad)
         nodoNuevo = NodoArbol(nodoActual, estado, profundidad, coste, f)
         list.append(nodoNuevo)
@@ -87,7 +87,7 @@ print("MENU")
 while True:
     menu()
 
-    opcionMenu = input("")
+    opcionMenu = int(input(""))
     if opcionMenu == BFS:
         print("Digame la profundidad máxima")
         profMax = int(input(""))

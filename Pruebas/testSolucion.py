@@ -30,11 +30,11 @@ class NodoArbol:
         self.f = f
 class Frontera:
     frontera=[]
-    def crea(self):
-        self.frontera=sort())
+
     def insert(self, NodoArbol):
         self.frontera.append(NodoArbol)
-        self.crea()
+        self.frontera.sort(key = lambda x: x.f)
+       
 
     def delete(self):
         if(not self.isEmpty()):
@@ -56,10 +56,15 @@ n2=NodoArbol(n1,e2,1,1,e2.nodoActual)
 n3=NodoArbol(n2,e3,2,2,e3.nodoActual)
 
 frontera=Frontera()
-frontera.crea()
+
 frontera.insert(n1)
 frontera.insert(n3)
 frontera.insert(n2)
+
+nodo1=frontera.delete()
+nodo2=frontera.delete()
+nodo3=frontera.delete()
+nodo4=frontera.delete()
 
 
 

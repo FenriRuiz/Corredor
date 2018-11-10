@@ -5,17 +5,18 @@ class EspacioEstados:
     def __init__(self,file):
         self.graph=Grafo(file)
     
-    def sucesores(self, Estado):
-        nodosAdy = self.graph.adyacentesNodo(Estado.nodoActual)
+    def sucesores(self, estado):
+        nodosAdy = self.graph.adyacentesNodo(estado.nodoActual)
         listaEstados=[]
         for nodoAdy in nodosAdy:    
-            listaPendientes=Estado.nodosPendientes
-            accion = "Estoy en " + nodoAdy['nInicial'] + " y voy a "+ nodoAdy['nFinal']+" via:"+nodoAdy['nombre ']
-            coste = nodoAdy['length']
-            if nodoAdy in Estado.nodosPendientes:
+            listaPendientes=estado.listaPendientes
+            accion = "Estoy en " + nodoAdy['nInicial'] + " y voy a "+ nodoAdy['nFinal']+" via:"+nodoAdy['nombre']
+            coste = nodoAdy['longitud']
+            if nodoAdy in estado.listaPendientes:
                 listaPendientes.remove(nodoAdy)
             #Obtenemos el coste y el nodo al que vamos de la arista
-            sucesion=(accion,Estado(nodoAdy['nFinal'], listaPendientes),coste)
+            estadoNuevo=Estado(nodoAdy['nFinal'],listaPendientes)
+            sucesion=(accion,estadoNuevo,coste)
             listaEstados.append(sucesion)
         return listaEstados
     
