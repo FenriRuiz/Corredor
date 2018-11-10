@@ -39,7 +39,6 @@ def creaSolucion(nodoActual):
     Profundidad:36
     costo:10871.6
     Esto podría ser lo de creaSolucion'''
-    print('polla')
     return ""
 
 def busquedaAcotada(prob,estrategia,profMax):
@@ -47,21 +46,26 @@ def busquedaAcotada(prob,estrategia,profMax):
     nodoInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
     listCaminoNodos=[]
     frontera.insert(nodoInicial)
-    listCaminoNodos.append(nodoInicial)
     solucion=False
-    contNodos=0
 
     while solucion==False or not frontera.isEmpty():
         nodoActual=frontera.delete()
+        listCaminoNodos.append(nodoActual.estado.nodoActual)
         if(prob.esObjetivo(nodoActual.estado)):
             solucion=True
         else:
             listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
+            
             listaNodos= creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
-            contNodos=contNodos+listaNodos.__len__()
-            print(contNodos)
+            print(nodoActual.accion)
+            for x in nodoActual.estado.listaPendientes:
+                print(x)
+            
             for n in listaNodos:
-                frontera.insert(n)
+                if not( n.estado.nodoActual in listCaminoNodos):
+                    frontera.insert(n) 
+                else:
+                    print('')
                     # else:
                     #     if(n.f < nodo.f):
                     #         frontera.frontera.remove(nodo)
@@ -82,7 +86,7 @@ def busquedaAcotada(prob,estrategia,profMax):
                 
 
             
-            # frontera.insert(listaNodos) #Llamo a insert porque a un array le daría igual insertar un objeto que un array de objetos
+            #frontera.insert(listaNodos) #Llamo a insert porque a un array le daría igual insertar un objeto que un array de objetos
     if (solucion==True):
         return creaSolucion(nodoActual)
     else :
@@ -118,27 +122,27 @@ while True:
     opcionMenu = int(input(""))
     if opcionMenu == BFS:
         print("Digame la profundidad máxima")
-        profMax = input("")
+        profMax = int(input(""))
         incProf = 1
         busqueda(prob,BFS,profMax,incProf)
     elif opcionMenu == DFS:
         print("Digame la profundidad máxima")
-        profMax = input("")
+        profMax = int(input(""))
         incProf = 1
         busqueda(prob,DFS,profMax,incProf)
     elif opcionMenu == DFS_AC:
         print("Digame la profundidad máxima")
-        profMax = input("")
+        profMax = int(input(""))
         incProf = 1
         #busqueda(prob,DFS_AC,profMax,incProf)
     elif opcionMenu == DFS_IT:
         print("Digame la profundidad máxima")
-        profMax = input("")
+        profMax = int(input(""))
         print("Digame la incremento en la profundidad")
         incProf = input("")
         #busqueda(prob,DFS_IT,profMax,incProf)
     elif opcionMenu == COST:
         print("Digame la profundidad máxima")
-        profMax = input("")
+        profMax = int(input(""))
         incProf = 1
         busqueda(prob,COST,profMax,incProf)
