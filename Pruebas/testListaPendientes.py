@@ -1,15 +1,9 @@
-class polla:
-    def __init__(self,longitud,grosor):
-        self.longitud=longitud
-        self.grosor=grosor
-listPollas=[]
-p1=polla(1,3)
-p2=polla(2,1)
-listPollas.append(p1)
-listPollas.append(p2)
-if (p1.grosor in listPollas):
-    print('polla')
+solucion=False
+i=0
+while(solucion==False or i>=2):
+    print('1')
+    i=i+1
+    if(i>2):
+        solucion=True
 
-
-
-print('adsdsa')
+    

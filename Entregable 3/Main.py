@@ -1,6 +1,7 @@
 import networkx as nx 
 import json
 import os
+import time
 
 from Frontera import Frontera
 from NodoArbol import NodoArbol
@@ -39,7 +40,9 @@ def creaSolucion(nodoActual):
     Profundidad:36
     costo:10871.6
     Esto podría ser lo de creaSolucion'''
-    return ""
+    print('Profundidad-->'+str(nodoActual.profundidad))
+    print('Costo-->'+str(nodoActual.costoCamino))  
+    return True
 
 def busquedaAcotada(prob,estrategia,profMax):
     frontera=Frontera()
@@ -48,11 +51,13 @@ def busquedaAcotada(prob,estrategia,profMax):
     frontera.insert(nodoInicial)
     solucion=False
 
-    while solucion==False or not frontera.isEmpty():
+    while (solucion==False) and (not frontera.isEmpty()):
         nodoActual=frontera.delete()
-        listCaminoNodos.append(nodoActual.estado.nodoActual)
+        listCaminoNodos.append(nodoActual)
+        #listCaminoNodos.append(nodoActual.estado.nodoActual)
         if(prob.esObjetivo(nodoActual.estado)):
             solucion=True
+            frontera.frontera=[]
         else:
             listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
             
@@ -62,10 +67,9 @@ def busquedaAcotada(prob,estrategia,profMax):
                 print(x)
             
             for n in listaNodos:
-                if not( n.estado.nodoActual in listCaminoNodos):
+                if (not(any(n.estado.nodoActual== nodoRecorrido.estado.nodoActual for nodoRecorrido in listCaminoNodos))) or any(n.f < nodoRecorrido.f for nodoRecorrido in listCaminoNodos) :
+                #if not(n.estado.nodoActual in listCaminoNodos):
                     frontera.insert(n) 
-                else:
-                    print('')
                     # else:
                     #     if(n.f < nodo.f):
                     #         frontera.frontera.remove(nodo)
@@ -95,8 +99,8 @@ def busquedaAcotada(prob,estrategia,profMax):
 
 def busqueda(prob,estrategia,profMax,incProf):
     profActual=incProf
-    Solucion=None
-    while Solucion==None or (profActual <= profMax):
+    Solucion=False
+    while Solucion==False and (profActual <= profMax):
         Solucion=busquedaAcotada(prob,estrategia,profActual)
         profActual=profActual+incProf
     return Solucion
@@ -124,12 +128,18 @@ while True:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
         incProf = 1
+        ts=time.time()
         busqueda(prob,BFS,profMax,incProf)
+        tf=time.time()
+        print(tf-ts)
     elif opcionMenu == DFS:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
         incProf = 1
+        ts=time.time()
         busqueda(prob,DFS,profMax,incProf)
+        tf=time.time()
+        print(tf-ts)
     elif opcionMenu == DFS_AC:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
@@ -145,4 +155,7 @@ while True:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
         incProf = 1
+        ts=time.time()
         busqueda(prob,COST,profMax,incProf)
+        tf=time.time()
+        print(tf-ts)
