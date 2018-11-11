@@ -9,15 +9,14 @@ from Problema import Problema
 
 BFS = 1
 DFS = 2
-DFS_AC = 3
-DFS_IT = 4
-COST = 5
+DFS_IT = 3
+COST = 4
 
 def calcularF(estrategia,coste,profundidad):
     if(estrategia==DFS):
-        return -profundidad
+        return float(1/profundidad)
     elif(estrategia==BFS):
-        return profundidad
+        return float(profundidad)
     elif(estrategia==COST):
         return coste
 
@@ -33,13 +32,8 @@ def creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia):
         listNodosArbol.append(nodoNuevo)
     
     return listNodosArbol
-def creaSolucion(nodoActual):
-    '''La solución es:
-    Estrategia:uniforme
-    Total Nodos Generados:1888
-    Profundidad:36
-    costo:10871.6
-    Esto podría ser lo de creaSolucion'''
+def creaSolucion(nodoActual,numNodos):
+    print('Nodos generados-->'+str(numNodos))
     print('Profundidad-->'+str(nodoActual.profundidad))
     print('Costo-->'+str(nodoActual.costoCamino))  
     return True
@@ -51,48 +45,22 @@ def busquedaAcotada(prob,estrategia,profMax):
     frontera.insert(nodoInicial)
     solucion=False
 
-    while (solucion==False) and (not frontera.isEmpty()):
+    while (solucion==False) or (not frontera.isEmpty()):
         nodoActual=frontera.delete()
         listCaminoNodos.append(nodoActual)
-        #listCaminoNodos.append(nodoActual.estado.nodoActual)
+        print("\n[ACCION] "+nodoActual.accion)
+        print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
         if(prob.esObjetivo(nodoActual.estado)):
             solucion=True
             frontera.frontera=[]
         else:
             listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
-            
             listaNodos= creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
-            print(nodoActual.accion)
-            for x in nodoActual.estado.listaPendientes:
-                print(x)
-            
             for n in listaNodos:
                 if (not(any(n.estado.nodoActual== nodoRecorrido.estado.nodoActual for nodoRecorrido in listCaminoNodos))) or any(n.f < nodoRecorrido.f for nodoRecorrido in listCaminoNodos) :
-                #if not(n.estado.nodoActual in listCaminoNodos):
-                    frontera.insert(n) 
-                    # else:
-                    #     if(n.f < nodo.f):
-                    #         frontera.frontera.remove(nodo)
-                    #         listCaminoNodos.remove(nodo)
-                    #         frontera.insert(n)
-                    #         listCaminoNodos.append(n)
-                # if(not (n.estado.nodoActual in listCaminoNodos)):
-                #     frontera.insert(n)
-                #     listCaminoNodos.append(n)
-                # else:
-                #     for  nodo in listCaminoNodos:
-                #         if(n.f < nodo.f):
-                #             frontera.frontera.remove(n)
-                #             listCaminoNodos.remove(n)
-                #             frontera.insert(n)
-                #             listCaminoNodos.append(n)
-                        
-                
-
-            
-            #frontera.insert(listaNodos) #Llamo a insert porque a un array le daría igual insertar un objeto que un array de objetos
+                    frontera.insert(n)
     if (solucion==True):
-        return creaSolucion(nodoActual)
+        return creaSolucion(nodoActual,len(listCaminoNodos))
     else :
         return None
 
@@ -106,13 +74,12 @@ def busqueda(prob,estrategia,profMax,incProf):
     return Solucion
 
 def menu():
-    os.system('cls')
+    #os.system('clear')
     print("Seleccione la estrategia de búsqueda a usar")
     print("\t 1 - Busqueda en ANCHURA")
     print("\t 2 - Busqueda en PROFUNDIDAD SIMPLE")
-    print("\t 3 - Busqueda en PROFUNDIDAD ACOTADA")
-    print("\t 4 - Busqueda en PROFUNDIDAD ITERATIVA")
-    print("\t 5 - Busqueda por COSTE")
+    print("\t 3 - Busqueda en PROFUNDIDAD ITERATIVA")
+    print("\t 4 - Busqueda por COSTE")
     print("\t 9 - Salir")
 
 
@@ -130,6 +97,7 @@ while True:
         incProf = 1
         ts=time.time()
         busqueda(prob,BFS,profMax,incProf)
+        print('Estrategia--> Anchura')
         tf=time.time()
         print(tf-ts)
     elif opcionMenu == DFS:
@@ -139,18 +107,15 @@ while True:
         ts=time.time()
         busqueda(prob,DFS,profMax,incProf)
         tf=time.time()
+        print('Estrategia--> Profundidad')
         print(tf-ts)
-    elif opcionMenu == DFS_AC:
-        print("Digame la profundidad máxima")
-        profMax = int(input(""))
-        incProf = 1
-        #busqueda(prob,DFS_AC,profMax,incProf)
     elif opcionMenu == DFS_IT:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
         print("Digame la incremento en la profundidad")
         incProf = input("")
         #busqueda(prob,DFS_IT,profMax,incProf)
+        print('Estrategia--> Profundidad Iterativa')
     elif opcionMenu == COST:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
@@ -158,4 +123,5 @@ while True:
         ts=time.time()
         busqueda(prob,COST,profMax,incProf)
         tf=time.time()
+        print('Estrategia--> Coste')
         print(tf-ts)

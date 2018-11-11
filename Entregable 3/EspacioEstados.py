@@ -14,9 +14,6 @@ class EspacioEstados:
             coste = nodoAdy['longitud']
             if nodoAdy['nFinal'] in estado.listaPendientes:
                 listaPendientes.remove(nodoAdy['nFinal'])
-               # print(listaPendientes)   
-            #Obtenemos el coste y el nodo al que vamos de la arista
-            #print(accion)
             
             estadoNuevo=Estado(nodoAdy['nFinal'],listaPendientes)
             sucesion=(accion,estadoNuevo,coste)

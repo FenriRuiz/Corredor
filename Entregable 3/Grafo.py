@@ -26,7 +26,6 @@ class Grafo():
 				arista=({'nInicial' : nodo_inicial,'nFinal' : nodo_final, 'nombre' : nombre, 
 				'longitud' : self.graph.edges._adjdict[nodo_inicial][nodo_final][0]['length']})
 				listaAristas.append(arista)
-				'''Cambiar el name y ver si podemos devolverlo como una cuadrupleta'''
 		else:
 			print("Error, el nodo no existe")
 			return listaAristas

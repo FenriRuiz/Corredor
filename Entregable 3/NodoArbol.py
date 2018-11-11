@@ -9,9 +9,10 @@ class NodoArbol:
             self.accion = 'Estoy en la raiz'
             self.profundidad = 0
         else:
-            self.costoCamino=nodoPadre.costoCamino+costoCamino #Actualizado a CostoCamino del nodoActual 
-            self.accion="Estuve en "+nodoPadre.estado.nodoActual+" y ahora estoy en "+self.estado.nodoActual
+            self.costoCamino=costoCamino #Actualizado a CostoCamino del nodoActual 
             self.profundidad=profundidad
+            self.accion=""+nodoPadre.estado.nodoActual+"->"+self.estado.nodoActual+" |"+str(self.nodoPadre.costoCamino)+" "+str(self.profundidad)+" "+str(self.costoCamino)+" |"
+ 
         self.f = f
         #print(self.accion)
 
