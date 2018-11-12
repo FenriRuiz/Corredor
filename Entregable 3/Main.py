@@ -33,6 +33,9 @@ def creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia):
     
     return listNodosArbol
 def creaSolucion(nodoActual,numNodos):
+    
+    while not(nodoActual.nodoPadre==None):
+        print(nodoActual.accion)
     print('Nodos generados-->'+str(numNodos))
     print('Profundidad-->'+str(nodoActual.profundidad))
     print('Costo-->'+str(nodoActual.costoCamino))  
@@ -45,14 +48,15 @@ def busquedaAcotada(prob,estrategia,profMax):
     frontera.insert(nodoInicial)
     solucion=False
 
-    while (solucion==False) or (not frontera.isEmpty()):
+    while (solucion==False) and (not frontera.isEmpty()):
         nodoActual=frontera.delete()
         listCaminoNodos.append(nodoActual)
-        print("\n[ACCION] "+nodoActual.accion)
+        #print("\n[ACCION] "+nodoActual.accion)
+
         print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
         if(prob.esObjetivo(nodoActual.estado)):
             solucion=True
-            frontera.frontera=[]
+            #frontera.frontera=[]
         else:
             listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
             listaNodos= creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados

@@ -8,13 +8,16 @@ class EspacioEstados:
     def sucesores(self, estado):
         nodosAdy = self.graph.adyacentesNodo(estado.nodoActual)
         listaEstados=[]
-        for nodoAdy in nodosAdy:    
-            listaPendientes=estado.listaPendientes
+        
+        for nodoAdy in nodosAdy:
+            listaPendientes=[]
+            for p in estado.listaPendientes:
+                listaPendientes.append(p)
+            #listaPendientes=estado.listaPendientes
             accion = "Estoy en " + nodoAdy['nInicial'] + " y voy a "+ nodoAdy['nFinal']+" via:"+nodoAdy['nombre']
             coste = nodoAdy['longitud']
             if nodoAdy['nFinal'] in estado.listaPendientes:
                 listaPendientes.remove(nodoAdy['nFinal'])
-            
             estadoNuevo=Estado(nodoAdy['nFinal'],listaPendientes)
             sucesion=(accion,estadoNuevo,coste)
             listaEstados.append(sucesion)
