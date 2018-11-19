@@ -14,7 +14,7 @@ COST = 4
 
 def calcularF(estrategia,coste,profundidad):
     if(estrategia==DFS):
-        return float(1/profundidad)
+        return float(-profundidad)
     elif(estrategia==BFS):
         return float(profundidad)
     elif(estrategia==COST):
@@ -34,8 +34,6 @@ def creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia):
     return listNodosArbol
 def creaSolucion(nodoActual,numNodos):
     
-    while not(nodoActual.nodoPadre==None):
-        print(nodoActual.accion)
     print('Nodos generados-->'+str(numNodos))
     print('Profundidad-->'+str(nodoActual.profundidad))
     print('Costo-->'+str(nodoActual.costoCamino))  
@@ -44,13 +42,13 @@ def creaSolucion(nodoActual,numNodos):
 def busquedaAcotada(prob,estrategia,profMax):
     frontera=Frontera()
     nodoInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
-    listCaminoNodos=[]
+    listVisitados=[]
     frontera.insert(nodoInicial)
     solucion=False
 
     while (solucion==False) and (not frontera.isEmpty()):
         nodoActual=frontera.delete()
-        listCaminoNodos.append(nodoActual)
+        listVisitados.append((nodoActual.estado.identificador,nodoActual.f))
         #print("\n[ACCION] "+nodoActual.accion)
 
         print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
@@ -61,10 +59,10 @@ def busquedaAcotada(prob,estrategia,profMax):
             listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
             listaNodos= creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
             for n in listaNodos:
-                if (not(any(n.estado.nodoActual== nodoRecorrido.estado.nodoActual for nodoRecorrido in listCaminoNodos))) or any(n.f < nodoRecorrido.f for nodoRecorrido in listCaminoNodos) :
+                if (not(any(n.estado.identificador== nodoRecorrido[0] for nodoRecorrido in listVisitados))) or any(n.f < nodoRecorrido[1] for nodoRecorrido in listVisitados) :
                     frontera.insert(n)
     if (solucion==True):
-        return creaSolucion(nodoActual,len(listCaminoNodos))
+        return creaSolucion(nodoActual,len(listVisitados))
     else :
         return None
 
