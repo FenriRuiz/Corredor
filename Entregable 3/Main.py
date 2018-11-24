@@ -11,21 +11,30 @@ BFS = 1
 DFS = 2
 DFS_IT = 3
 COST = 4
+VORAZ=5
+A=6
 
-def calcularF(estrategia,coste,profundidad):
+
+def calcularF(estrategia,coste,profundidad,nodoActual):
     if(estrategia==DFS):
         return float(-profundidad)
     elif(estrategia==BFS):
         return float(profundidad)
     elif(estrategia==COST):
         return coste
+    elif(estrategia==VORAZ):
+        return nodoActual.estado.heuristica(nodoActual.estado) #this is not correct, (node1,node2) node1 suposed to be nodoActual
+    elif(estrategia==A):
+        #no clue about dis
+        print('')
+ 
 
 def creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia):
     listNodosArbol=[]
     for sucesion in listaSucesiones:
         profundidad = nodoActual.profundidad+1
         coste = float(nodoActual.costoCamino) + float(sucesion[2])
-        f = calcularF(estrategia,coste, profundidad)
+        f = calcularF(estrategia,coste, profundidad,nodoActual)
         
         nodoNuevo = NodoArbol(nodoActual, sucesion[1], profundidad, coste, f)
         
@@ -46,6 +55,29 @@ def creaSolucion(nodoActual,numNodos):
     return True
 
 def busquedaAcotada(prob,estrategia,profMax):
+    frontera=Frontera()
+    nodoInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
+    listVisitados=[]
+    frontera.insert(nodoInicial)
+    solucion=False
+
+    while (solucion==False) and (not frontera.isEmpty()):
+        nodoActual=frontera.delete()
+        listVisitados.append((nodoActual.estado.identificador,nodoActual.f))
+        if(prob.esObjetivo(nodoActual.estado)):
+            solucion=True
+        else:
+            listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
+            listaNodos= creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
+            for n in listaNodos:
+                if (not(any((n.estado.identificador== nodoRecorrido[0] or (n.f < nodoRecorrido[1])  for nodoRecorrido in listVisitados)))):
+                    frontera.insert(n)
+    if (solucion==True):
+        return creaSolucion(nodoActual,len(listVisitados))
+    else :
+        return None
+
+def busquedaInformada(prob,estrategia,profMax):
     frontera=Frontera()
     nodoInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
     listVisitados=[]
