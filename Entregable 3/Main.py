@@ -32,8 +32,14 @@ def creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia):
         listNodosArbol.append(nodoNuevo)
     
     return listNodosArbol
+def recorreNodoPadre(nodo):
+    if(nodo != None):
+        recorreNodoPadre(nodo.nodoPadre)
+        print('\n'+nodo.accion)
+        print(nodo.estado.listaPendientes)
+
 def creaSolucion(nodoActual,numNodos):
-    
+    recorreNodoPadre(nodoActual)
     print('Nodos generados-->'+str(numNodos))
     print('Profundidad-->'+str(nodoActual.profundidad))
     print('Costo-->'+str(nodoActual.costoCamino))  
@@ -49,17 +55,13 @@ def busquedaAcotada(prob,estrategia,profMax):
     while (solucion==False) and (not frontera.isEmpty()):
         nodoActual=frontera.delete()
         listVisitados.append((nodoActual.estado.identificador,nodoActual.f))
-        #print("\n[ACCION] "+nodoActual.accion)
-
-        print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
         if(prob.esObjetivo(nodoActual.estado)):
             solucion=True
-            #frontera.frontera=[]
         else:
             listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
             listaNodos= creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
             for n in listaNodos:
-                if (not(any(n.estado.identificador== nodoRecorrido[0] for nodoRecorrido in listVisitados))) or any(n.f < nodoRecorrido[1] for nodoRecorrido in listVisitados) :
+                if (not(any((n.estado.identificador== nodoRecorrido[0] or (n.f < nodoRecorrido[1])  for nodoRecorrido in listVisitados)))):
                     frontera.insert(n)
     if (solucion==True):
         return creaSolucion(nodoActual,len(listVisitados))

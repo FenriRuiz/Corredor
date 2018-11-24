@@ -28,24 +28,7 @@ class NodoArbol:
             self.accion="Estuve en "+str(nodoPadre.estado.nodoActual)+" y ahora estoy en "+str(self.estado.nodoActual)
             self.profundidad=nodoPadre.profundidad+1
         self.f = f
-class Frontera:
-    frontera=[]
 
-    def insert(self, NodoArbol):
-        self.frontera.append(NodoArbol)
-        self.frontera.sort(key = lambda x: x.f)
-       
-
-    def delete(self):
-        if(not self.isEmpty()):
-            return self.frontera.pop(0)
-        else:
-            return 0
-    def isEmpty(self):
-        if(not self.frontera):
-            return True
-        else:
-            return False
 
 e1=Estado(1,[2,3])
 e2=Estado(2,[3])
@@ -55,31 +38,20 @@ n1=NodoArbol(None,e1,0,0,e1.nodoActual)
 n2=NodoArbol(n1,e2,1,1,e2.nodoActual)
 n3=NodoArbol(n2,e3,2,2,e3.nodoActual)
 
-frontera=Frontera()
+def recorreNodoPadre(nodo):
+    if(nodo != None):
+        recorreNodoPadre(nodo.nodoPadre)
+        print(nodo.accion)
+        return nodo.accion
+def creaSolucion(n3):
+    recorreNodoPadre(n3)
 
-frontera.insert(n1)
-frontera.insert(n3)
-frontera.insert(n2)
-
-nodo1=frontera.delete()
-nodo2=frontera.delete()
-nodo3=frontera.delete()
-nodo4=frontera.delete()
-
-
-def creaListaNodosArbol(listaEstados,nodoActual,profMax,estrategia):
-    list = []
-    for estado in listaEstados:
-        profundidad = nodoActual.profundidad+1
-        coste = nodoActual.costoCamino + float(estado.nodoActual['longitud'])
-        f = calcularF(estrategia,coste, profundidad)
-        nodoNuevo = NodoArbol(nodoActual, estado, profundidad, coste, f)
-        list.append(nodoNuevo)
-    return list
+creaSolucion(n3)   
 
 
 
-print('123')
+
+
 
 
 
