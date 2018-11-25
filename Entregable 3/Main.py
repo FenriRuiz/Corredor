@@ -65,9 +65,9 @@ def busquedaAcotada(prob,estrategia,profMax):
         nodoActual=frontera.delete()
         listVisitados.append((nodoActual.estado.identificador,nodoActual.f))
 
-        print("\n[ACCION] "+nodoActual.accion)
+        #print("\n[ACCION] "+nodoActual.accion)
 
-        print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
+        #print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
         if(prob.esObjetivo(nodoActual.estado)):
             solucion=True
         else:
@@ -104,7 +104,7 @@ def menu():
     print("\t 9 - Salir")
 
 
-data=open("fichero.json","r")
+data=open("Anchuras.json","r")
 datos=data.read()
 prob=Problema(json.loads(datos))
 print("MENU")
