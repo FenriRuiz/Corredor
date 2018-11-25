@@ -23,10 +23,10 @@ def calcularF(estrategia,coste,profundidad,nodoActual):
     elif(estrategia==COST):
         return coste
     elif(estrategia==VORAZ):
-        return nodoActual.estado.heuristica(nodoActual.estado) #this is not correct, (node1,node2) node1 suposed to be nodoActual
+        return prob.distance(nodoActual.estado.nodoActual,nodoActual.estado.listaPendientes[0])
     elif(estrategia==A):
-        #no clue about dis
-        print('')
+        return nodoActual.costoCamino+prob.distance(nodoActual.estado.nodoActual,nodoActual.estado.listaPendientes[0])
+
  
 
 def creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia):
@@ -64,6 +64,10 @@ def busquedaAcotada(prob,estrategia,profMax):
     while (solucion==False) and (not frontera.isEmpty()):
         nodoActual=frontera.delete()
         listVisitados.append((nodoActual.estado.identificador,nodoActual.f))
+
+        print("\n[ACCION] "+nodoActual.accion)
+
+        print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
         if(prob.esObjetivo(nodoActual.estado)):
             solucion=True
         else:
@@ -77,28 +81,7 @@ def busquedaAcotada(prob,estrategia,profMax):
     else :
         return None
 
-def busquedaInformada(prob,estrategia,profMax):
-    frontera=Frontera()
-    nodoInicial=NodoArbol(None,prob.estadoInicial,0,0,0)
-    listVisitados=[]
-    frontera.insert(nodoInicial)
-    solucion=False
 
-    while (solucion==False) and (not frontera.isEmpty()):
-        nodoActual=frontera.delete()
-        listVisitados.append((nodoActual.estado.identificador,nodoActual.f))
-        if(prob.esObjetivo(nodoActual.estado)):
-            solucion=True
-        else:
-            listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
-            listaNodos= creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
-            for n in listaNodos:
-                if (not(any((n.estado.identificador== nodoRecorrido[0] or (n.f < nodoRecorrido[1])  for nodoRecorrido in listVisitados)))):
-                    frontera.insert(n)
-    if (solucion==True):
-        return creaSolucion(nodoActual,len(listVisitados))
-    else :
-        return None
 
 
 def busqueda(prob,estrategia,profMax,incProf):
@@ -116,6 +99,8 @@ def menu():
     print("\t 2 - Busqueda en PROFUNDIDAD SIMPLE")
     print("\t 3 - Busqueda en PROFUNDIDAD ITERATIVA")
     print("\t 4 - Busqueda por COSTE")
+    print("\t 5 - Busqueda por VORAZ")
+    print("\t 6 - Busqueda por A*")
     print("\t 9 - Salir")
 
 
@@ -160,4 +145,22 @@ while True:
         busqueda(prob,COST,profMax,incProf)
         tf=time.time()
         print('Estrategia--> Coste')
+        print(tf-ts)
+    elif opcionMenu == VORAZ:
+        print("Digame la profundidad máxima")
+        profMax = int(input(""))
+        incProf = 1
+        ts=time.time()
+        busqueda(prob,VORAZ,profMax,incProf)
+        tf=time.time()
+        print('Estrategia--> Voraz')
+        print(tf-ts)
+    elif opcionMenu == A:
+        print("Digame la profundidad máxima")
+        profMax = int(input(""))
+        incProf = 1
+        ts=time.time()
+        busqueda(prob,A,profMax,incProf)
+        tf=time.time()
+        print('Estrategia--> A*')
         print(tf-ts)

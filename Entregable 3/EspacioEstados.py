@@ -22,6 +22,8 @@ class EspacioEstados:
             sucesion=(accion,estadoNuevo,coste)
             listaEstados.append(sucesion)
         return listaEstados
+    def lonlat(self,idnode):
+        return (float(self.graph.nodes[idnode]['x']),float(self.graph.nodes[idnode]['y']))
     
     def esta(self,estado):
         return self.graph.perteneceNodo(estado.nodoActual)
