@@ -14,6 +14,12 @@ COST = 4
 VORAZ=5
 A=6
 
+def heuristica(nodoActual):
+    list_distancias=[]
+    for n in nodoActual.estado.listaPendientes:
+        list_distancias.append(prob.distance(nodoActual.estado.nodoActual,n))
+    return min(list_distancias)
+        
 
 def calcularF(estrategia,coste,profundidad,nodoActual):
     if(estrategia==DFS):
@@ -23,9 +29,9 @@ def calcularF(estrategia,coste,profundidad,nodoActual):
     elif(estrategia==COST):
         return coste
     elif(estrategia==VORAZ):
-        return prob.distance(nodoActual.estado.nodoActual,nodoActual.estado.listaPendientes[0])
+        return heuristica(nodoActual)
     elif(estrategia==A):
-        return nodoActual.costoCamino+prob.distance(nodoActual.estado.nodoActual,nodoActual.estado.listaPendientes[0])
+        return nodoActual.costoCamino+heuristica(nodoActual)
 
  
 
@@ -60,7 +66,6 @@ def busquedaAcotada(prob,estrategia,profMax):
     listVisitados=[]
     frontera.insert(nodoInicial)
     solucion=False
-
     while (solucion==False) and (not frontera.isEmpty()):
         nodoActual=frontera.delete()
         listVisitados.append((nodoActual.estado.identificador,nodoActual.f))
@@ -104,7 +109,7 @@ def menu():
     print("\t 9 - Salir")
 
 
-data=open("Anchuras.json","r")
+data=open(File,"r")
 datos=data.read()
 prob=Problema(json.loads(datos))
 print("MENU")
