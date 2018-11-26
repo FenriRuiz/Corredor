@@ -19,11 +19,10 @@ def heuristica(nodoActual):
     for n in nodoActual.estado.listaPendientes:
         list_distancias.append(prob.distance(nodoActual.estado.nodoActual,n))
     return min(list_distancias)
-        
 
 def calcularF(estrategia,coste,profundidad,nodoActual):
     if(estrategia==DFS):
-        return float(-profundidad)
+        return -(profundidad)
     elif(estrategia==BFS):
         return float(profundidad)
     elif(estrategia==COST):
@@ -50,8 +49,8 @@ def creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia):
 def recorreNodoPadre(nodo):
     if(nodo != None):
         recorreNodoPadre(nodo.nodoPadre)
-        print('\n'+nodo.accion)
-        print(nodo.estado.listaPendientes)
+        print('\nEstoy en '+nodo.estado.nodoActual+" tengo que visitar"+ str(nodo.estado.listaPendientes))
+        print(nodo.accion+"\n")
 
 def creaSolucion(nodoActual,numNodos):
     recorreNodoPadre(nodoActual)
@@ -66,20 +65,21 @@ def busquedaAcotada(prob,estrategia,profMax):
     listVisitados=[]
     frontera.insert(nodoInicial)
     solucion=False
+
     while (solucion==False) and (not frontera.isEmpty()):
         nodoActual=frontera.delete()
         listVisitados.append((nodoActual.estado.identificador,nodoActual.f))
 
         #print("\n[ACCION] "+nodoActual.accion)
-
         #print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
+
         if(prob.esObjetivo(nodoActual.estado)):
             solucion=True
         else:
             listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
             listaNodos= creaListaNodosArbol(listaSucesiones,nodoActual,profMax,estrategia) #Metodo que crea nodos arboles por la lista de estados
             for n in listaNodos:
-                if (not(any((n.estado.identificador== nodoRecorrido[0] or (n.f < nodoRecorrido[1])  for nodoRecorrido in listVisitados)))):
+                if (not(any(n.estado.identificador== nodoRecorrido[0] for nodoRecorrido in listVisitados))) or any(n.f < nodoRecorrido[1] for nodoRecorrido in listVisitados):
                     frontera.insert(n)
     if (solucion==True):
         return creaSolucion(nodoActual,len(listVisitados))
@@ -98,7 +98,6 @@ def busqueda(prob,estrategia,profMax,incProf):
     return Solucion
 
 def menu():
-    #os.system('clear')
     print("Seleccione la estrategia de búsqueda a usar")
     print("\t 1 - Busqueda en ANCHURA")
     print("\t 2 - Busqueda en PROFUNDIDAD SIMPLE")
@@ -109,7 +108,7 @@ def menu():
     print("\t 9 - Salir")
 
 
-data=open(File,"r")
+data=open("Anchuras.json","r")
 datos=data.read()
 prob=Problema(json.loads(datos))
 print("MENU")
