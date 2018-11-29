@@ -14,9 +14,10 @@ A = 6
 
 def heuristica(nodoActual):
     list_distancias = []
-    for n in nodoActual.estado.listaPendientes:
-        list_distancias.append(prob.distance(nodoActual.estado.nodoActual, n))
-    print(str(min(list_distancias)) + " " + nodoActual.estado.nodoActual + " " + n)
+    for n in nodoActual.listaPendientes:
+        list_distancias.append(prob.distance(nodoActual.nodoActual, n))
+        print("[DISTANCIA DE: " + nodoActual.nodoActual + "] HASTA [" + n + "]" )
+    print("[MENOR]" + str(min(list_distancias)) + " " + nodoActual.nodoActual + " " + n)
     return min(list_distancias)
 
 def calcularF(estrategia, coste, profundidad, nodoActual):
@@ -35,8 +36,9 @@ def creaListaNodosArbol(listaSucesiones, nodoActual, profMax, estrategia):
     listNodosArbol = []
     for sucesion in listaSucesiones:
         profundidad = nodoActual.profundidad + 1
+        print("[NODO ACTUAL]: " + sucesion[1].nodoActual)
         coste = float(nodoActual.costoCamino) + float(sucesion[2])
-        f = calcularF(estrategia, coste, profundidad, nodoActual)
+        f = calcularF(estrategia, coste, profundidad, sucesion[1])
         nodoNuevo = NodoArbol(nodoActual, sucesion[1], profundidad, coste, f)
         listNodosArbol.append(nodoNuevo)
     return listNodosArbol
@@ -65,7 +67,8 @@ def busquedaAcotada(prob, estrategia, profMax):
     while (solucion == False) and (not frontera.isEmpty()):
         nodoActual = frontera.delete()
         listVisitados.append((nodoActual.estado.identificador, nodoActual.f))
-
+        if nodoActual.estado.nodoActual == "4331489538":
+            print("EL QUE SE REPITE!")
         #print("\n[ACCION] "+nodoActual.accion)
         #print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
 
