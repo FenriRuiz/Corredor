@@ -2,7 +2,7 @@ from EspacioEstados import EspacioEstados
 from Estado import Estado
 import math
 class Problema:
-    def __init__(self,json):
+    def __init__(self, json):
         self.espacioEstados=EspacioEstados(json['graphlmfile'])
         self.estadoInicial=Estado(json['IntSt']['node'], json['IntSt']['listNodes'])
     def esObjetivo(self, Estado):
@@ -10,7 +10,7 @@ class Problema:
             return True
         else:
             return False
-    def distance(self,idNode1,idNode2):
+    def distance(self, idNode1, idNode2):
         (lng1,lat1) = self.espacioEstados.lonlat(idNode1)
         (lng2,lat2) = self.espacioEstados.lonlat(idNode2)
 

@@ -3,19 +3,19 @@ import networkx as nx
 class Grafo():
 	graph=nx.Graph()
 	nodes=None
-	def __init__(self,file):
+	def __init__(self, file):
 		self.graph=nx.read_graphml(file)
 		self.nodes=self.graph._node
-	def perteneceNodo(self,osmid_node):
+	def perteneceNodo(self, osmid_node):
 		return osmid_node in self.nodes
-	def posicionNodo(self,osmid_node):
+	def posicionNodo(self, osmid_node):
 		if(self.perteneceNodo(osmid_node)):
 			posicion=[]
 			posicion.append(self.nodes[osmid_node])
 			return posicion
 		else:
 			return "Error, el nodo no existe"
-	def adyacentesNodo(self,nodo_inicial):
+	def adyacentesNodo(self, nodo_inicial):
 		listaAristas=[]
 		if(self.perteneceNodo(nodo_inicial)):
 			for nodo_final in self.graph.edges._adjdict[nodo_inicial]:

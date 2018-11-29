@@ -1,7 +1,7 @@
 
 class NodoArbol:
 
-    def __init__(self,nodoPadre,Estado,profundidad,costoCamino,f):
+    def __init__(self, nodoPadre, Estado, profundidad, costoCamino, f):
         self.estado = Estado
         self.nodoPadre = nodoPadre
         if self.nodoPadre == None:

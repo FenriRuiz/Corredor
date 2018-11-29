@@ -2,7 +2,7 @@ from Estado import Estado
 from Grafo import Grafo
 
 class EspacioEstados:
-    def __init__(self,file):
+    def __init__(self, file):
         self.graph=Grafo(file)
     
     def sucesores(self, estado):
@@ -22,8 +22,8 @@ class EspacioEstados:
             sucesion=(accion,estadoNuevo,coste)
             listaEstados.append(sucesion)
         return listaEstados
-    def lonlat(self,idnode):
+    def lonlat(self, idnode):
         return (float(self.graph.nodes[idnode]['x']),float(self.graph.nodes[idnode]['y']))
     
-    def esta(self,estado):
+    def esta(self, estado):
         return self.graph.perteneceNodo(estado.nodoActual)

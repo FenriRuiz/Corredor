@@ -2,7 +2,7 @@ import hashlib
 import math
 
 class Estado:
-    def __init__(self,nodoActual, nodosPendientes):
+    def __init__(self, nodoActual, nodosPendientes):
         self.nodoActual=nodoActual #nodoOSM['node']
         self.listaPendientes=nodosPendientes #nodoOSM['listNodes']
         self.identificador=self.serializar()
