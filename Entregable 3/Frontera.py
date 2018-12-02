@@ -1,6 +1,7 @@
 class Frontera:
     def __init__(self):
         self.frontera = []
+
     def insert(self, NodoArbol):
         self.frontera.append(NodoArbol)
         self.frontera.sort(key = lambda x: x.f)
@@ -10,6 +11,7 @@ class Frontera:
             return self.frontera.pop(0)
         else:
             return 0
+            
     def isEmpty(self):
         if(not self.frontera):
             return True

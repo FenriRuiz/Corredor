@@ -21,6 +21,7 @@ def heuristica(nodoSucesor):
     return min(list_distancias) 
 
 def calcularF(estrategia, coste, profundidad, nodoSucesor):
+
     if estrategia == DFS:
         return -(profundidad)
     elif estrategia == BFS:
@@ -37,9 +38,10 @@ def creaListaNodosArbol(listaSucesiones, nodoActual, profMax, estrategia):
     for sucesion in listaSucesiones:
         profundidad = nodoActual.profundidad + 1
         if profundidad <= profMax:
-            #print("[NODO ACTUAL]: " + sucesion[1].nodoActual)
+
             coste = float(nodoActual.costoCamino) + float(sucesion[2])
             f = calcularF(estrategia, coste, profundidad, sucesion[1])
+
             nodoNuevo = NodoArbol(nodoActual, sucesion[1], profundidad, coste, f)
             listNodosArbol.append(nodoNuevo)
     return listNodosArbol
@@ -68,18 +70,18 @@ def busquedaAcotada(prob, estrategia, profMax):
     while (solucion == False) and (not frontera.isEmpty()):
         nodoActual = frontera.delete()
         listVisitados.append((nodoActual.estado.identificador, nodoActual.f))
-        #print("\n[ACCION] "+nodoActual.accion)
-        print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
-
         if prob.esObjetivo(nodoActual.estado):
             solucion = True
         else:
             listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
-            #Metodo que crea nodos arboles por la lista de estados
             listaNodos = creaListaNodosArbol(listaSucesiones, nodoActual, profMax, estrategia)
+
             for n in listaNodos:
-                if not(any(n.estado.identificador == nodoRecorrido[0] for nodoRecorrido in listVisitados)) or any(n.f < nodoRecorrido[1] for nodoRecorrido in listVisitados):
+                if not(any(n.estado.identificador == nodoRecorrido[0] for nodoRecorrido in listVisitados)): 
                     frontera.insert(n)
+                elif any(n.f < nodoRecorrido[1] for nodoRecorrido in listVisitados):
+                    frontera.insert(n)
+                    
     if solucion == True:
         return creaSolucion(nodoActual, len(listVisitados))
     else:
@@ -117,7 +119,7 @@ while True:
         incProf = 1
 
         tComienzo = time.time()
-        busquedaAcotada(prob, BFS, profMax, incProf)
+        busquedaAcotada(prob, BFS, profMax)
         tFinal = time.time()
 
         print('Estrategia--> Anchura')
@@ -128,7 +130,7 @@ while True:
         profMax = int(input(""))
         incProf = 1
         tComienzo = time.time()
-        busquedaAcotada(prob, DFS, profMax, incProf)
+        busquedaAcotada(prob, DFS, profMax)
         tFinal = time.time()
 
         print('Estrategia--> Profundidad')
@@ -152,7 +154,7 @@ while True:
         incProf = 1
 
         tComienzo = time.time()
-        busquedaAcotada(prob, COST, profMax, incProf)
+        busquedaAcotada(prob, COST, profMax)
         tFinal = time.time()
 
         print('Estrategia--> Coste')
@@ -164,7 +166,7 @@ while True:
         incProf = 1
 
         tComienzo = time.time()
-        busquedaAcotada(prob, VORAZ, profMax, incProf)
+        busquedaAcotada(prob, VORAZ, profMax)
         tFinal = time.time()
         
         print('Estrategia--> Voraz')
@@ -176,7 +178,7 @@ while True:
         incProf = 1
 
         tComienzo = time.time()
-        busquedaAcotada(prob, A, profMax, incProf)
+        busquedaAcotada(prob, A, profMax)
         tFinal = time.time()
 
         print('Estrategia--> A*')
