@@ -36,12 +36,12 @@ def creaListaNodosArbol(listaSucesiones, nodoActual, profMax, estrategia):
     listNodosArbol = []
     for sucesion in listaSucesiones:
         profundidad = nodoActual.profundidad + 1
-        #print("[NODO ACTUAL]: " + sucesion[1].nodoActual)
-        coste = float(nodoActual.costoCamino) + float(sucesion[2])
-        f = calcularF(estrategia, coste, profundidad, sucesion[1])
-        #f = calcularF(estrategia, coste, profundidad, nodoActual)
-        nodoNuevo = NodoArbol(nodoActual, sucesion[1], profundidad, coste, f)
-        listNodosArbol.append(nodoNuevo)
+        if profundidad <= profMax:
+            #print("[NODO ACTUAL]: " + sucesion[1].nodoActual)
+            coste = float(nodoActual.costoCamino) + float(sucesion[2])
+            f = calcularF(estrategia, coste, profundidad, sucesion[1])
+            nodoNuevo = NodoArbol(nodoActual, sucesion[1], profundidad, coste, f)
+            listNodosArbol.append(nodoNuevo)
     return listNodosArbol
 
 def recorreNodoPadre(nodo):
@@ -70,7 +70,7 @@ def busquedaAcotada(prob, estrategia, profMax):
         nodoActual = frontera.delete()
         listVisitados.append((nodoActual.estado.identificador, nodoActual.f))
         #print("\n[ACCION] "+nodoActual.accion)
-        #print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
+        print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
 
         if prob.esObjetivo(nodoActual.estado):
             solucion = True
@@ -90,11 +90,12 @@ def busquedaAcotada(prob, estrategia, profMax):
 
 
 def busqueda(prob, estrategia, profMax, incProf):
-    profActual = incProf
+    '''profActual = incProf
     Solucion = False
     while Solucion == False and (profActual <= profMax):
         Solucion = busquedaAcotada(prob, estrategia, profActual)
-        profActual = profActual + incProf
+        profActual = profActual + incProf'''
+    Solucion = busquedaAcotada(prob, estrategia, profMax)
     return Solucion
 
 def menu():
