@@ -51,7 +51,6 @@ def recorreNodoPadre(nodo):
         print('\nEstoy en ' + nodo.estado.nodoActual + " tengo que visitar" +
               str(nodo.estado.listaPendientes))
 
-
 def creaSolucion(nodoActual, numNodos):
     recorreNodoPadre(nodoActual)
     print('Nodos generados-->' + str(numNodos))
@@ -86,16 +85,12 @@ def busquedaAcotada(prob, estrategia, profMax):
     else:
         return None
 
-
-
-
-def busqueda(prob, estrategia, profMax, incProf):
-    '''profActual = incProf
-    Solucion = False
-    while Solucion == False and (profActual <= profMax):
+def busquedaIterativa(prob, estrategia, profMax, incProf):
+    profActual = incProf
+    Solucion = None
+    while Solucion == None and profActual <= profMax:
         Solucion = busquedaAcotada(prob, estrategia, profActual)
-        profActual = profActual + incProf'''
-    Solucion = busquedaAcotada(prob, estrategia, profMax)
+        profActual = profActual + incProf
     return Solucion
 
 def menu():
@@ -108,64 +103,84 @@ def menu():
     print("\t 6 - Busqueda por A*")
     print("\t 9 - Salir")
 
-
 data = open("Anchuras.json", "r")
 datos = data.read()
 prob = Problema(json.loads(datos))
 print("MENU")
 while True:
     menu()
-
     opcionMenu = int(input(""))
+
     if opcionMenu == BFS:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
         incProf = 1
-        ts = time.time()
-        busqueda(prob, BFS, profMax, incProf)
+
+        tComienzo = time.time()
+        busquedaAcotada(prob, BFS, profMax, incProf)
+        tFinal = time.time()
+
         print('Estrategia--> Anchura')
-        tf = time.time()
-        print(tf - ts)
+        print(tFinal - tComienzo)
+
     elif opcionMenu == DFS:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
         incProf = 1
-        ts = time.time()
-        busqueda(prob, DFS, profMax, incProf)
-        tf = time.time()
+        tComienzo = time.time()
+        busquedaAcotada(prob, DFS, profMax, incProf)
+        tFinal = time.time()
+
         print('Estrategia--> Profundidad')
-        print(tf - ts)
+        print(tFinal - tComienzo)
+
     elif opcionMenu == DFS_IT:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
         print("Digame la incremento en la profundidad")
-        incProf = input("")
-        #busqueda(prob,DFS_IT,profMax,incProf)
+        incProf = int(input(""))
+
+        tComienzo = time.time()
+        busquedaIterativa(prob, DFS_IT, profMax, incProf)
+        tFinal = time.time()
+
         print('Estrategia--> Profundidad Iterativa')
+
     elif opcionMenu == COST:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
         incProf = 1
-        ts = time.time()
-        busqueda(prob, COST, profMax, incProf)
-        tf = time.time()
+
+        tComienzo = time.time()
+        busquedaAcotada(prob, COST, profMax, incProf)
+        tFinal = time.time()
+
         print('Estrategia--> Coste')
-        print(tf - ts)
+        print(tFinal - tComienzo)
+
     elif opcionMenu == VORAZ:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
         incProf = 1
-        ts = time.time()
-        busqueda(prob, VORAZ, profMax, incProf)
-        tf = time.time()
+
+        tComienzo = time.time()
+        busquedaAcotada(prob, VORAZ, profMax, incProf)
+        tFinal = time.time()
+        
         print('Estrategia--> Voraz')
-        print(tf - ts)
+        print(tFinal - tComienzo)
+
     elif opcionMenu == A:
         print("Digame la profundidad máxima")
         profMax = int(input(""))
         incProf = 1
-        ts = time.time()
-        busqueda(prob, A, profMax, incProf)
-        tf = time.time()
+
+        tComienzo = time.time()
+        busquedaAcotada(prob, A, profMax, incProf)
+        tFinal = time.time()
+
         print('Estrategia--> A*')
-        print(tf - ts)
+        print(tFinal - tComienzo)
+
+    elif opcionMenu == 9:
+        break
