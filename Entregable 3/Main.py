@@ -16,7 +16,9 @@ def heuristica(nodoSucesor):
     list_distancias = []
     for n in nodoSucesor.listaPendientes:
         list_distancias.append(prob.distance(nodoSucesor.nodoActual, n))
-    return min(list_distancias)
+    if not(list_distancias):
+        return 0
+    return min(list_distancias) 
 
 def calcularF(estrategia, coste, profundidad, nodoSucesor):
     if estrategia == DFS:
