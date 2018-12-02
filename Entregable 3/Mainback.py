@@ -12,13 +12,15 @@ COST = 4
 VORAZ = 5
 A = 6
 
-def heuristica(nodoSucesor):
+def heuristica(nodoActual):
     list_distancias = []
-    for n in nodoSucesor.listaPendientes:
-        list_distancias.append(prob.distance(nodoSucesor.nodoActual, n))
+    for n in nodoActual.estado.listaPendientes:
+        list_distancias.append(prob.distance(nodoActual.estado.nodoActual, n))
+        #print("[DISTANCIA DE: " + nodoActual.nodoActual + "] HASTA [" + n + "]" )
+    #print("[MENOR]" + str(min(list_distancias)) + " " + nodoActual.nodoActual + " " + n)
     return min(list_distancias)
 
-def calcularF(estrategia, coste, profundidad, nodoSucesor):
+def calcularF(estrategia, coste, profundidad, nodoActual):
     if estrategia == DFS:
         return -(profundidad)
     elif estrategia == BFS:
@@ -26,9 +28,9 @@ def calcularF(estrategia, coste, profundidad, nodoSucesor):
     elif estrategia == COST:
         return coste
     elif estrategia == VORAZ:
-        return heuristica(nodoSucesor)
+        return heuristica(nodoActual)
     elif estrategia == A:
-        return coste + heuristica(nodoSucesor)
+        return nodoActual.costoCamino + heuristica(nodoActual)
 
 def creaListaNodosArbol(listaSucesiones, nodoActual, profMax, estrategia):
     listNodosArbol = []
@@ -36,8 +38,8 @@ def creaListaNodosArbol(listaSucesiones, nodoActual, profMax, estrategia):
         profundidad = nodoActual.profundidad + 1
         #print("[NODO ACTUAL]: " + sucesion[1].nodoActual)
         coste = float(nodoActual.costoCamino) + float(sucesion[2])
-        f = calcularF(estrategia, coste, profundidad, sucesion[1])
-        #f = calcularF(estrategia, coste, profundidad, nodoActual)
+        #f = calcularF(estrategia, coste, profundidad, sucesion[1])
+        f = calcularF(estrategia, coste, profundidad, nodoActual)
         nodoNuevo = NodoArbol(nodoActual, sucesion[1], profundidad, coste, f)
         listNodosArbol.append(nodoNuevo)
     return listNodosArbol
@@ -67,7 +69,7 @@ def busquedaAcotada(prob, estrategia, profMax):
     while (solucion == False) and (not frontera.isEmpty()):
         nodoActual = frontera.delete()
         listVisitados.append((nodoActual.estado.identificador, nodoActual.f))
-        #print("\n[ACCION] "+nodoActual.accion)
+        print("\n[ACCION] "+nodoActual.accion)
         #print("[Pendientes] "+ str(nodoActual.estado.listaPendientes))
 
         if prob.esObjetivo(nodoActual.estado):
