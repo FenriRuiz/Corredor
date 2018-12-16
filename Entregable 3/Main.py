@@ -49,7 +49,7 @@ def creaListaNodosArbol(listaSucesiones, nodoActual, profMax, estrategia):
 def recorreNodoPadre(nodo):
     if nodo != None:
         recorreNodoPadre(nodo.nodoPadre)
-        print(nodo.accion + "\n")
+        print(nodo.accion +"\n")
         print('\nEstoy en ' + nodo.estado.nodoActual + " tengo que visitar" +
               str(nodo.estado.listaPendientes))
 
@@ -69,30 +69,19 @@ def busquedaAcotada(prob, estrategia, profMax):
 
     while (solucion == False) and (not frontera.isEmpty()):
         nodoActual = frontera.delete()
-        #print(nodoActual.estado.identificador)
         listVisitados.append((nodoActual.estado.identificador, nodoActual.f))
         if prob.esObjetivo(nodoActual.estado):
             solucion = True
         else:
             listaSucesiones = prob.espacioEstados.sucesores(nodoActual.estado)
-            '''if nodoActual.estado.identificador == "84dffb15ac6db73f18ad44db9ad25fec":
-                for i in listaSucesiones:
-                    print(i)'''
-
             listaNodos = creaListaNodosArbol(listaSucesiones, nodoActual, profMax, estrategia)
 
             for n in listaNodos:
                 if not(any(n.estado.identificador == nodoRecorrido[0] for nodoRecorrido in listVisitados)): 
-                    #Si no se encuentra en la lista de visitados
                     if any(n.estado.identificador == nodoFrontera.estado.identificador and n.f < nodoFrontera.f for nodoFrontera in frontera.frontera):
-                        #Si existe en la frontera con un f menor
-                        #Añadimos el nuevo nodo dentro del insert se elimina el nodo de la frontera
                         frontera.insert(n)
                     else:
-                        #Sino existe en la frontera lo añadimos
                         frontera.insert(n)
-
-
                     
     if solucion == True:
         return creaSolucion(nodoActual, len(listVisitados))
@@ -117,7 +106,7 @@ def menu():
     print("\t 6 - Busqueda por A*")
     print("\t 9 - Salir")
 
-data = open("Manzanares.json", "r")
+data = open("Miguelturra.json", "r")
 datos = data.read()
 prob = Problema(json.loads(datos))
 print("MENU")

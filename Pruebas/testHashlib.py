@@ -2,8 +2,8 @@ import json
 import hashlib
 import sys
 
-lista = ["960815541","325794463"]
-node = "2140711440"
+lista = ["852636538","843205891","958245069","154749196","855048479","4547812588"]
+node = "154749574"
 h = hashlib.md5() 
 h.update("2140711440".encode())
 for nodo in lista:
