@@ -23,7 +23,7 @@ class EspacioEstados:
 
             sucesion = (accion, estadoNuevo, coste)
             listaEstados.append(sucesion)
-            
+          
         return listaEstados
 
     def lonlat(self, idnode):

@@ -3,6 +3,11 @@ class Frontera:
         self.frontera = []
 
     def insert(self, NodoArbol):
+        i = 0
+        for hoja in self.frontera:
+            if hoja.estado.identificador == NodoArbol.estado.identificador:
+                        self.frontera.pop(i)
+            i=i+1
         self.frontera.append(NodoArbol)
         self.frontera.sort(key = lambda x: x.f)
 
@@ -11,7 +16,15 @@ class Frontera:
             return self.frontera.pop(0)
         else:
             return 0
-            
+
+    def eliminar(self, indenti):
+        posicion = 0
+        for i in self.frontera:
+            if i.estado.identificador == indenti:
+                self.frontera.remove(posicion)
+                break
+            posicion = posicion + 1
+
     def isEmpty(self):
         if(not self.frontera):
             return True
