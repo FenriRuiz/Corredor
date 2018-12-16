@@ -86,9 +86,7 @@ def busquedaAcotada(prob, estrategia, profMax):
                     #Si no se encuentra en la lista de visitados
                     if any(n.estado.identificador == nodoFrontera.estado.identificador and n.f < nodoFrontera.f for nodoFrontera in frontera.frontera):
                         #Si existe en la frontera con un f menor
-                        '''Tenemos que eliminar el nodo con n.estado.identificador'''
-                        frontera.eliminar(n.estado.identificador)
-                        #Añadimos el nuevo nodo
+                        #Añadimos el nuevo nodo dentro del insert se elimina el nodo de la frontera
                         frontera.insert(n)
                     else:
                         #Sino existe en la frontera lo añadimos
