@@ -5,7 +5,7 @@ class Frontera:
     def insert(self, NodoArbol):
         i = 0
         for hoja in self.frontera:
-            if hoja.estado.identificador == NodoArbol.estado.identificador:
+            if hoja.estado.identificador == NodoArbol.estado.identificador :
                 self.frontera.pop(i)
             i=i+1
         self.frontera.append(NodoArbol)

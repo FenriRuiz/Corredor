@@ -1,0 +1,266 @@
+<gpx version="1.1" creator="ESI UCLM">
+
+<desc> Estrategia: profundidad
+Total Nodos Generados:2105
+Profundidad:48
+costo:4909.9
+
+ </desc>
+
+<wpt lat="39.49668" lon="-4.821077" >
+<name>[I]4331431334</name>
+</wpt>
+<wpt lat="39.4797303" lon="-4.8423264" >
+<name>[V]4331489575</name>
+</wpt>
+<wpt lat="39.4794449" lon="-4.8366801" >
+<name>[V]4331489683</name>
+</wpt>
+<wpt lat="39.4809988" lon="-4.838574" >
+<name>[V]4762868814</name>
+</wpt>
+ 
+<trk>
+
+	<trkpt lat="39.49668" lon="-4.821077" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:0Z</time>
+		<name>4331431334</name>
+	</trkpt>
+	<trkpt lat="39.496152" lon="-4.8209084" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:1Z</time>
+		<name>4331431346</name>
+	</trkpt>
+	<trkpt lat="39.4956813" lon="-4.8208763" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:2Z</time>
+		<name>4845150944</name>
+	</trkpt>
+	<trkpt lat="39.4821254" lon="-4.8339283" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:3Z</time>
+		<name>4331489762</name>
+	</trkpt>
+	<trkpt lat="39.4810593" lon="-4.8350192" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:4Z</time>
+		<name>4331489532</name>
+	</trkpt>
+	<trkpt lat="39.480927" lon="-4.83529" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:5Z</time>
+		<name>946409139</name>
+	</trkpt>
+	<trkpt lat="39.4806398" lon="-4.8353269" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:6Z</time>
+		<name>4331489528</name>
+	</trkpt>
+	<trkpt lat="39.4793666" lon="-4.8361194" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:7Z</time>
+		<name>946409156</name>
+	</trkpt>
+	<trkpt lat="39.479285" lon="-4.8363427" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:8Z</time>
+		<name>4331489684</name>
+	</trkpt>
+	<trkpt lat="39.4794449" lon="-4.8366801" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:9Z</time>
+		<name>4331489683</name>
+	</trkpt>
+	<trkpt lat="39.479285" lon="-4.8363427" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:10Z</time>
+		<name>4331489684</name>
+	</trkpt>
+	<trkpt lat="39.4790182" lon="-4.8368385" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:11Z</time>
+		<name>946409158</name>
+	</trkpt>
+	<trkpt lat="39.4791592" lon="-4.8371678" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:12Z</time>
+		<name>946409159</name>
+	</trkpt>
+	<trkpt lat="39.4799045" lon="-4.8413613" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:13Z</time>
+		<name>4331489627</name>
+	</trkpt>
+	<trkpt lat="39.4799407" lon="-4.841101" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:14Z</time>
+		<name>4331489570</name>
+	</trkpt>
+	<trkpt lat="39.480024" lon="-4.8404965" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:15Z</time>
+		<name>4331489573</name>
+	</trkpt>
+	<trkpt lat="39.480086" lon="-4.8399738" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:16Z</time>
+		<name>4331489564</name>
+	</trkpt>
+	<trkpt lat="39.4802602" lon="-4.8390327" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:17Z</time>
+		<name>4331489656</name>
+	</trkpt>
+	<trkpt lat="39.4808095" lon="-4.8383857" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:18Z</time>
+		<name>4331489667</name>
+	</trkpt>
+	<trkpt lat="39.4809988" lon="-4.838574" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:19Z</time>
+		<name>4762868814</name>
+	</trkpt>
+	<trkpt lat="39.4808095" lon="-4.8383857" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:20Z</time>
+		<name>4331489667</name>
+	</trkpt>
+	<trkpt lat="39.4809358" lon="-4.8381481" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:21Z</time>
+		<name>4331489665</name>
+	</trkpt>
+	<trkpt lat="39.4809589" lon="-4.838107" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:22Z</time>
+		<name>4331489695</name>
+	</trkpt>
+	<trkpt lat="39.480654" lon="-4.8379142" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:23Z</time>
+		<name>4331489691</name>
+	</trkpt>
+	<trkpt lat="39.4808151" lon="-4.8375472" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:24Z</time>
+		<name>4331489692</name>
+	</trkpt>
+	<trkpt lat="39.4809827" lon="-4.8372221" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:25Z</time>
+		<name>4331489550</name>
+	</trkpt>
+	<trkpt lat="39.481031" lon="-4.8371362" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:26Z</time>
+		<name>4331489549</name>
+	</trkpt>
+	<trkpt lat="39.4801017" lon="-4.8361395" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:27Z</time>
+		<name>4331489709</name>
+	</trkpt>
+	<trkpt lat="39.4799142" lon="-4.8366188" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:28Z</time>
+		<name>4331489708</name>
+	</trkpt>
+	<trkpt lat="39.4799802" lon="-4.8366674" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:29Z</time>
+		<name>4331489711</name>
+	</trkpt>
+	<trkpt lat="39.4798372" lon="-4.8371945" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:30Z</time>
+		<name>4331489710</name>
+	</trkpt>
+	<trkpt lat="39.4797414" lon="-4.837213" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:31Z</time>
+		<name>4331489678</name>
+	</trkpt>
+	<trkpt lat="39.4797822" lon="-4.8375059" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:32Z</time>
+		<name>4331489687</name>
+	</trkpt>
+	<trkpt lat="39.479897" lon="-4.837866" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:33Z</time>
+		<name>4331489686</name>
+	</trkpt>
+	<trkpt lat="39.479986" lon="-4.8384469" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:34Z</time>
+		<name>4331489685</name>
+	</trkpt>
+	<trkpt lat="39.4796895" lon="-4.8382981" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:35Z</time>
+		<name>4331489558</name>
+	</trkpt>
+	<trkpt lat="39.4794263" lon="-4.837627" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:36Z</time>
+		<name>4331489701</name>
+	</trkpt>
+	<trkpt lat="39.4792029" lon="-4.8370411" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:37Z</time>
+		<name>4331489681</name>
+	</trkpt>
+	<trkpt lat="39.4794079" lon="-4.8370405" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:38Z</time>
+		<name>4331489682</name>
+	</trkpt>
+	<trkpt lat="39.4794449" lon="-4.8366801" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:39Z</time>
+		<name>4331489683</name>
+	</trkpt>
+	<trkpt lat="39.479285" lon="-4.8363427" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:40Z</time>
+		<name>4331489684</name>
+	</trkpt>
+	<trkpt lat="39.4793666" lon="-4.8361194" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:41Z</time>
+		<name>946409156</name>
+	</trkpt>
+	<trkpt lat="39.4784082" lon="-4.8365608" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:42Z</time>
+		<name>4331489551</name>
+	</trkpt>
+	<trkpt lat="39.4783468" lon="-4.8366071" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:43Z</time>
+		<name>982621562</name>
+	</trkpt>
+	<trkpt lat="39.4791592" lon="-4.8371678" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:44Z</time>
+		<name>946409159</name>
+	</trkpt>
+	<trkpt lat="39.4799045" lon="-4.8413613" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:45Z</time>
+		<name>4331489627</name>
+	</trkpt>
+	<trkpt lat="39.4797838" lon="-4.8419449" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:46Z</time>
+		<name>4331489577</name>
+	</trkpt>
+	<trkpt lat="39.4797303" lon="-4.8423264" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:47Z</time>
+		<name>4331489575</name>
+	</trkpt>
+</trk> 
+</gpx>

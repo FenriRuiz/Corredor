@@ -1,0 +1,258 @@
+Estrategia: A
+Total Nodos Generados:109049
+Profundidad:84
+costo:7324.8
+
+
+
+None 6794.5 0 0.0
+Estoy en 4080450611 y tengo que visitar ['528058467', '803292783', '828479647']
+
+4080450611 -> 4080450631 (Camino del Cristo) 6818.8 1 184.3
+Estoy en 4080450631 y tengo que visitar ['528058467', '803292783', '828479647']
+
+4080450631 -> 4080450626 (Camino del Cristo) 6854.0 2 489.0
+Estoy en 4080450626 y tengo que visitar ['528058467', '803292783', '828479647']
+
+4080450626 -> 4080450614 (Camino del Cristo) 7029.9 3 1392.1
+Estoy en 4080450614 y tengo que visitar ['528058467', '803292783', '828479647']
+
+4080450614 -> 4080455213 (Camino de la Torrecilla) 7049.1 4 1516.6
+Estoy en 4080455213 y tengo que visitar ['528058467', '803292783', '828479647']
+
+4080455213 -> 4080455241 (Camino de la Torrecilla) 7088.0 5 1828.7
+Estoy en 4080455241 y tengo que visitar ['528058467', '803292783', '828479647']
+
+4080455241 -> 4080455240 (Camino de la Torrecilla) 7102.8 6 2235.0
+Estoy en 4080455240 y tengo que visitar ['528058467', '803292783', '828479647']
+
+4080455240 -> 255139835 (Carretera Puertollano - Ciudad Real) 7137.4 7 2532.7
+Estoy en 255139835 y tengo que visitar ['528058467', '803292783', '828479647']
+
+255139835 -> 824372815 (Carretera Puertollano - Ciudad Real) 7149.2 8 2601.5
+Estoy en 824372815 y tengo que visitar ['528058467', '803292783', '828479647']
+
+824372815 -> 255139922 (Carretera Puertollano - Ciudad Real) 7297.8 9 2991.0
+Estoy en 255139922 y tengo que visitar ['528058467', '803292783', '828479647']
+
+255139922 -> 255140029 (Carretera Puertollano - Ciudad Real) 7318.7 10 3019.6
+Estoy en 255140029 y tengo que visitar ['528058467', '803292783', '828479647']
+
+255140029 -> 255139610 (Carretera Puertollano - Ciudad Real) 7363.9 11 3096.3
+Estoy en 255139610 y tengo que visitar ['528058467', '803292783', '828479647']
+
+255139610 -> 824372750 (Noname) 7367.8 12 3121.8
+Estoy en 824372750 y tengo que visitar ['528058467', '803292783', '828479647']
+
+824372750 -> 824372752 (Avenida de los Reyes Católicos) 7368.5 13 3188.3
+Estoy en 824372752 y tengo que visitar ['528058467', '803292783', '828479647']
+
+824372752 -> 818781464 (Avenida de los Reyes Católicos) 7368.8 14 3340.8
+Estoy en 818781464 y tengo que visitar ['528058467', '803292783', '828479647']
+
+818781464 -> 818780949 (Avenida de los Reyes Católicos) 7371.0 15 3424.5
+Estoy en 818780949 y tengo que visitar ['528058467', '803292783', '828479647']
+
+818780949 -> 528058467 (Noname) 7372.5 16 3453.9
+Estoy en 528058467 y tengo que visitar ['803292783', '828479647']
+
+528058467 -> 818780918 (Noname) 7409.3 17 3492.7
+Estoy en 818780918 y tengo que visitar ['803292783', '828479647']
+
+818780918 -> 818780954 (Noname) 7411.0 18 3505.0
+Estoy en 818780954 y tengo que visitar ['803292783', '828479647']
+
+818780954 -> 818780945 (Noname) 7412.2 19 3529.2
+Estoy en 818780945 y tengo que visitar ['803292783', '828479647']
+
+818780945 -> 816488227 (Noname) 7418.0 20 3543.1
+Estoy en 816488227 y tengo que visitar ['803292783', '828479647']
+
+816488227 -> 818780948 (Noname) 7447.9 21 3568.9
+Estoy en 818780948 y tengo que visitar ['803292783', '828479647']
+
+818780948 -> 528058472 (Avenida de los Reyes Católicos) 7546.9 22 3865.5
+Estoy en 528058472 y tengo que visitar ['803292783', '828479647']
+
+528058472 -> 528058499 (Noname) 7548.0 23 3889.6
+Estoy en 528058499 y tengo que visitar ['803292783', '828479647']
+
+528058499 -> 528058511 (Noname) 7560.6 24 3918.7
+Estoy en 528058511 y tengo que visitar ['803292783', '828479647']
+
+528058511 -> 528058504 (Noname) 7575.3 25 3931.3
+Estoy en 528058504 y tengo que visitar ['803292783', '828479647']
+
+528058504 -> 417219043 (Calle de las Magnolias) 7621.5 26 4112.4
+Estoy en 417219043 y tengo que visitar ['803292783', '828479647']
+
+417219043 -> 824373052 (Calle de las Magnolias) 7634.8 27 4224.9
+Estoy en 824373052 y tengo que visitar ['803292783', '828479647']
+
+824373052 -> 824373056 (Noname) 7636.1 28 4244.7
+Estoy en 824373056 y tengo que visitar ['803292783', '828479647']
+
+824373056 -> 825474721 (Noname) 7650.8 29 4263.1
+Estoy en 825474721 y tengo que visitar ['803292783', '828479647']
+
+825474721 -> 825474722 (Avenida del Descubrimiento de America) 7655.2 30 4316.4
+Estoy en 825474722 y tengo que visitar ['803292783', '828479647']
+
+825474722 -> 825474723 (Avenida del Descubrimiento de America) 7668.1 31 4440.4
+Estoy en 825474723 y tengo que visitar ['803292783', '828479647']
+
+825474723 -> 3511136213 (Avenida del Descubrimiento de America) 7672.7 32 4477.0
+Estoy en 3511136213 y tengo que visitar ['803292783', '828479647']
+
+3511136213 -> 825474724 (Avenida del Descubrimiento de America) 7674.3 33 4488.0
+Estoy en 825474724 y tengo que visitar ['803292783', '828479647']
+
+825474724 -> 825474725 (Avenida del Descubrimiento de America) 7681.7 34 4538.3
+Estoy en 825474725 y tengo que visitar ['803292783', '828479647']
+
+825474725 -> 825474726 (Avenida del Descubrimiento de America) 7697.5 35 4624.2
+Estoy en 825474726 y tengo que visitar ['803292783', '828479647']
+
+825474726 -> 825474734 (Noname) 7700.1 36 4639.8
+Estoy en 825474734 y tengo que visitar ['803292783', '828479647']
+
+825474734 -> 825474731 (Noname) 7707.3 37 4651.6
+Estoy en 825474731 y tengo que visitar ['803292783', '828479647']
+
+825474731 -> 825474821 (Avenida Puente de Retama) 7762.6 38 4874.3
+Estoy en 825474821 y tengo que visitar ['803292783', '828479647']
+
+825474821 -> 825474813 (Avenida Puente de Retama) 7764.7 39 4886.8
+Estoy en 825474813 y tengo que visitar ['803292783', '828479647']
+
+825474813 -> 825474887 (Calle Puente del Molino del Emperador) 7769.2 40 4928.3
+Estoy en 825474887 y tengo que visitar ['803292783', '828479647']
+
+825474887 -> 825474891 (Calle Puente del Molino del Emperador) 7770.9 41 4968.6
+Estoy en 825474891 y tengo que visitar ['803292783', '828479647']
+
+825474891 -> 825474888 (Calle Puente del Molino del Emperador) 7777.7 42 5049.9
+Estoy en 825474888 y tengo que visitar ['803292783', '828479647']
+
+825474888 -> 828479700 (Calle Puente del Molino del Emperador) 7785.2 43 5109.9
+Estoy en 828479700 y tengo que visitar ['803292783', '828479647']
+
+828479700 -> 828479642 (Calle Puente del Molino del Emperador) 7793.5 44 5125.0
+Estoy en 828479642 y tengo que visitar ['803292783', '828479647']
+
+828479642 -> 828479651 (Calle Zurbarán) 7794.6 45 5159.4
+Estoy en 828479651 y tengo que visitar ['803292783', '828479647']
+
+828479651 -> 827212565 (Calle Zurbarán) 7795.7 46 5180.3
+Estoy en 827212565 y tengo que visitar ['803292783', '828479647']
+
+827212565 -> 828479659 (Calle Zurbarán) 7797.1 47 5197.4
+Estoy en 828479659 y tengo que visitar ['803292783', '828479647']
+
+828479659 -> 828479663 (Calle Zurbarán) 7808.9 48 5243.6
+Estoy en 828479663 y tengo que visitar ['803292783', '828479647']
+
+828479663 -> 828479648 (Calle Zurbarán) 7820.1 49 5258.0
+Estoy en 828479648 y tengo que visitar ['803292783', '828479647']
+
+828479648 -> 828479647 (Calle Beato Fernández de Ayala) 7820.1 50 5287.7
+Estoy en 828479647 y tengo que visitar ['803292783']
+
+828479647 -> 833754736 (Calle Camino del Campillo) 7826.4 51 5375.9
+Estoy en 833754736 y tengo que visitar ['803292783']
+
+833754736 -> 828479971 (Calle Camino del Campillo) 7829.6 52 5416.3
+Estoy en 828479971 y tengo que visitar ['803292783']
+
+828479971 -> 828479974 (Calle Camino del Campillo) 7833.7 53 5470.9
+Estoy en 828479974 y tengo que visitar ['803292783']
+
+828479974 -> 828479978 (Calle Camino del Campillo) 7834.3 54 5505.4
+Estoy en 828479978 y tengo que visitar ['803292783']
+
+828479978 -> 828480036 (Calle Cigüela) 7848.6 55 5624.8
+Estoy en 828480036 y tengo que visitar ['803292783']
+
+828480036 -> 798574810 (Calle Cigüela) 7865.5 56 5735.1
+Estoy en 798574810 y tengo que visitar ['803292783']
+
+798574810 -> 828480043 (Ronda de Alarcos) 7871.3 57 5770.1
+Estoy en 828480043 y tengo que visitar ['803292783']
+
+828480043 -> 162036484 (Ronda de Alarcos) 7908.9 58 5820.4
+Estoy en 162036484 y tengo que visitar ['803292783']
+
+162036484 -> 806368928 (Ronda de Alarcos) 7935.4 59 5853.7
+Estoy en 806368928 y tengo que visitar ['803292783']
+
+806368928 -> 806368921 (Ronda de Alarcos) 7960.4 60 5883.6
+Estoy en 806368921 y tengo que visitar ['803292783']
+
+806368921 -> 162036478 (Ronda de Alarcos) 8040.8 61 5982.6
+Estoy en 162036478 y tengo que visitar ['803292783']
+
+162036478 -> 806369127 (Calle Morería) 8051.1 62 6032.9
+Estoy en 806369127 y tengo que visitar ['803292783']
+
+806369127 -> 765350899 (Calle Morería) 8069.5 63 6101.1
+Estoy en 765350899 y tengo que visitar ['803292783']
+
+765350899 -> 806368894 (Calle Morería) 8082.3 64 6144.0
+Estoy en 806368894 y tengo que visitar ['803292783']
+
+806368894 -> 806369110 (Calle Morería) 8107.6 65 6217.6
+Estoy en 806369110 y tengo que visitar ['803292783']
+
+806369110 -> 806368885 (Calle Morería) 8112.7 66 6231.0
+Estoy en 806368885 y tengo que visitar ['803292783']
+
+806368885 -> 806368896 (Calle Morería) 8138.7 67 6292.2
+Estoy en 806368896 y tengo que visitar ['803292783']
+
+806368896 -> 806368906 (Calle Morería) 8150.3 68 6314.7
+Estoy en 806368906 y tengo que visitar ['803292783']
+
+806368906 -> 765350900 (Calle Morería) 8163.7 69 6339.7
+Estoy en 765350900 y tengo que visitar ['803292783']
+
+765350900 -> 522198135 (Calle Morería) 8188.8 70 6385.5
+Estoy en 522198135 y tengo que visitar ['803292783']
+
+522198135 -> 804689235 (Calle Postas) 8201.4 71 6470.2
+Estoy en 804689235 y tengo que visitar ['803292783']
+
+804689235 -> 806368904 (['Calle de los Reyes', 'Avenida Alfonso X El Sabio']) 8269.8 72 6523.1
+Estoy en 806368904 y tengo que visitar ['803292783']
+
+806368904 -> 522198143 (Calle de los Reyes) 8277.9 73 6529.1
+Estoy en 522198143 y tengo que visitar ['803292783']
+
+522198143 -> 522198145 (Paseo del Prado) 8296.9 74 6664.9
+Estoy en 522198145 y tengo que visitar ['803292783']
+
+522198145 -> 503708630 (['Calle Feria', 'Calle Caballeros']) 8342.4 75 6761.1
+Estoy en 503708630 y tengo que visitar ['803292783']
+
+503708630 -> 504665907 (Calle Calatrava) 8391.0 76 6903.8
+Estoy en 504665907 y tengo que visitar ['803292783']
+
+504665907 -> 812954600 (Calle de la Paloma) 8432.9 77 6957.4
+Estoy en 812954600 y tengo que visitar ['803292783']
+
+812954600 -> 765309500 (Calle de la Paloma) 8520.2 78 7034.9
+Estoy en 765309500 y tengo que visitar ['803292783']
+
+765309500 -> 812954436 (Calle Libertad) 8531.5 79 7125.5
+Estoy en 812954436 y tengo que visitar ['803292783']
+
+812954436 -> 765309506 (Calle Libertad) 8537.7 80 7178.8
+Estoy en 765309506 y tengo que visitar ['803292783']
+
+765309506 -> 803292809 (Calle Corazón de María) 8584.5 81 7252.7
+Estoy en 803292809 y tengo que visitar ['803292783']
+
+803292809 -> 803292781 (Calle Doctor Gerardo Sánchez Barrejón) 8591.0 82 7318.0
+Estoy en 803292781 y tengo que visitar ['803292783']
+
+803292781 -> 803292783 (Calle del Refugio) 6378333.8 83 7324.8
+Estoy en 803292783 y tengo que visitar []

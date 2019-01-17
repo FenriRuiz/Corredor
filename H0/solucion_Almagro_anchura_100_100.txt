@@ -1,0 +1,87 @@
+Estrategia: anchura
+Total Nodos Generados:18385
+Profundidad:27
+costo:1864.9
+
+
+
+None 0.0 0 0.0
+Estoy en 2040195062 y tengo que visitar ['1966640629', '2656970826', '4525404215', '4751644520']
+
+2040195062 -> 1005571217 (Calle de San Juan) 1.0 1 120.3
+Estoy en 1005571217 y tengo que visitar ['1966640629', '2656970826', '4525404215', '4751644520']
+
+1005571217 -> 247678044 (Ronda de San Francisco) 2.0 2 400.0
+Estoy en 247678044 y tengo que visitar ['1966640629', '2656970826', '4525404215', '4751644520']
+
+247678044 -> 247682450 (Ronda de San Francisco) 3.0 3 532.6
+Estoy en 247682450 y tengo que visitar ['1966640629', '2656970826', '4525404215', '4751644520']
+
+247682450 -> 247682452 (Ronda de San Francisco) 4.0 4 599.4
+Estoy en 247682452 y tengo que visitar ['1966640629', '2656970826', '4525404215', '4751644520']
+
+247682452 -> 1005569408 (Ronda de San Francisco) 5.0 5 665.7
+Estoy en 1005569408 y tengo que visitar ['1966640629', '2656970826', '4525404215', '4751644520']
+
+1005569408 -> 2054262656 (Calle de Carretería) 6.0 6 728.4
+Estoy en 2054262656 y tengo que visitar ['1966640629', '2656970826', '4525404215', '4751644520']
+
+2054262656 -> 2051495834 (Calle de Carretería) 7.0 7 760.9
+Estoy en 2051495834 y tengo que visitar ['1966640629', '2656970826', '4525404215', '4751644520']
+
+2051495834 -> 247682453 (Calle de Carretería) 8.0 8 807.2
+Estoy en 247682453 y tengo que visitar ['1966640629', '2656970826', '4525404215', '4751644520']
+
+247682453 -> 2656970826 (Calle Pedro de Oviedo) 9.0 9 815.8
+Estoy en 2656970826 y tengo que visitar ['1966640629', '4525404215', '4751644520']
+
+2656970826 -> 247682453 (Calle Pedro de Oviedo) 10.0 10 824.5
+Estoy en 247682453 y tengo que visitar ['1966640629', '4525404215', '4751644520']
+
+247682453 -> 2051495834 (Calle de Carretería) 11.0 11 870.7
+Estoy en 2051495834 y tengo que visitar ['1966640629', '4525404215', '4751644520']
+
+2051495834 -> 2054262656 (Calle de Carretería) 12.0 12 903.2
+Estoy en 2054262656 y tengo que visitar ['1966640629', '4525404215', '4751644520']
+
+2054262656 -> 1005569408 (Calle de Carretería) 13.0 13 965.9
+Estoy en 1005569408 y tengo que visitar ['1966640629', '4525404215', '4751644520']
+
+1005569408 -> 247682452 (Ronda de San Francisco) 14.0 14 1032.3
+Estoy en 247682452 y tengo que visitar ['1966640629', '4525404215', '4751644520']
+
+247682452 -> 247682450 (Ronda de San Francisco) 15.0 15 1099.0
+Estoy en 247682450 y tengo que visitar ['1966640629', '4525404215', '4751644520']
+
+247682450 -> 1966640618 (Calle del Conde de Barcelona) 16.0 16 1127.6
+Estoy en 1966640618 y tengo que visitar ['1966640629', '4525404215', '4751644520']
+
+1966640618 -> 4751644520 (Calle del Conde de Barcelona) 17.0 17 1227.6
+Estoy en 4751644520 y tengo que visitar ['1966640629', '4525404215']
+
+4751644520 -> 4751644518 (Noname) 18.0 18 1236.8
+Estoy en 4751644518 y tengo que visitar ['1966640629', '4525404215']
+
+4751644518 -> 4751644514 (Noname) 19.0 19 1255.2
+Estoy en 4751644514 y tengo que visitar ['1966640629', '4525404215']
+
+4751644514 -> 1966640629 (Calle del Conde de Barcelona) 20.0 20 1371.4
+Estoy en 1966640629 y tengo que visitar ['4525404215']
+
+1966640629 -> 4751644514 (Calle del Conde de Barcelona) 21.0 21 1487.6
+Estoy en 4751644514 y tengo que visitar ['4525404215']
+
+4751644514 -> 5384084985 (Noname) 22.0 22 1506.1
+Estoy en 5384084985 y tengo que visitar ['4525404215']
+
+5384084985 -> 1005565986 (Calle de Pedrero) 23.0 23 1614.1
+Estoy en 1005565986 y tengo que visitar ['4525404215']
+
+1005565986 -> 247678039 (Calle de San Francisco) 24.0 24 1741.3
+Estoy en 247678039 y tengo que visitar ['4525404215']
+
+247678039 -> 4525404216 (Calle Ejido de la Magdalena) 25.0 25 1843.5
+Estoy en 4525404216 y tengo que visitar ['4525404215']
+
+4525404216 -> 4525404215 (Noname) 26.0 26 1864.9
+Estoy en 4525404215 y tengo que visitar []

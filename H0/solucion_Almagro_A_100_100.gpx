@@ -1,0 +1,169 @@
+<gpx version="1.1" creator="ESI UCLM">
+
+<desc> Estrategia: A
+Total Nodos Generados:12021
+Profundidad:28
+costo:1640.6
+
+ </desc>
+
+<wpt lat="38.887206" lon="-3.7086794" >
+<name>[I]2040195062</name>
+</wpt>
+<wpt lat="38.8842959" lon="-3.7137975" >
+<name>[V]1966640629</name>
+</wpt>
+<wpt lat="38.8884025" lon="-3.7168111" >
+<name>[V]2656970826</name>
+</wpt>
+<wpt lat="38.884511" lon="-3.7113404" >
+<name>[V]4525404215</name>
+</wpt>
+<wpt lat="38.8854409" lon="-3.7142592" >
+<name>[V]4751644520</name>
+</wpt>
+ 
+<trk>
+
+	<trkpt lat="38.887206" lon="-3.7086794" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:0Z</time>
+		<name>2040195062</name>
+	</trkpt>
+	<trkpt lat="38.885431" lon="-3.7078391" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:1Z</time>
+		<name>2040195058</name>
+	</trkpt>
+	<trkpt lat="38.8850445" lon="-3.7084177" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:2Z</time>
+		<name>1818952794</name>
+	</trkpt>
+	<trkpt lat="38.884803" lon="-3.7088111" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:3Z</time>
+		<name>959469726</name>
+	</trkpt>
+	<trkpt lat="38.8846143" lon="-3.7094417" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:4Z</time>
+		<name>2656970801</name>
+	</trkpt>
+	<trkpt lat="38.8846251" lon="-3.7094957" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:5Z</time>
+		<name>2656970804</name>
+	</trkpt>
+	<trkpt lat="38.8847676" lon="-3.7096503" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:6Z</time>
+		<name>2656970815</name>
+	</trkpt>
+	<trkpt lat="38.8847831" lon="-3.7096539" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:7Z</time>
+		<name>4525404218</name>
+	</trkpt>
+	<trkpt lat="38.884511" lon="-3.7113404" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:8Z</time>
+		<name>4525404215</name>
+	</trkpt>
+	<trkpt lat="38.8847006" lon="-3.7113822" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:9Z</time>
+		<name>4525404216</name>
+	</trkpt>
+	<trkpt lat="38.8845439" lon="-3.7125439" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:10Z</time>
+		<name>247678039</name>
+	</trkpt>
+	<trkpt lat="38.8856474" lon="-3.7129276" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:11Z</time>
+		<name>1005565986</name>
+	</trkpt>
+	<trkpt lat="38.8853895" lon="-3.7141273" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:12Z</time>
+		<name>5384084985</name>
+	</trkpt>
+	<trkpt lat="38.8854409" lon="-3.7142592" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:13Z</time>
+		<name>4751644520</name>
+	</trkpt>
+	<trkpt lat="38.8853864" lon="-3.7143352" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:14Z</time>
+		<name>4751644518</name>
+	</trkpt>
+	<trkpt lat="38.8852707" lon="-3.7142284" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:15Z</time>
+		<name>4751644514</name>
+	</trkpt>
+	<trkpt lat="38.8842959" lon="-3.7137975" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:16Z</time>
+		<name>1966640629</name>
+	</trkpt>
+	<trkpt lat="38.8852707" lon="-3.7142284" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:17Z</time>
+		<name>4751644514</name>
+	</trkpt>
+	<trkpt lat="38.8853895" lon="-3.7141273" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:18Z</time>
+		<name>5384084985</name>
+	</trkpt>
+	<trkpt lat="38.8854409" lon="-3.7142592" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:19Z</time>
+		<name>4751644520</name>
+	</trkpt>
+	<trkpt lat="38.8862825" lon="-3.7146352" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:20Z</time>
+		<name>1966640618</name>
+	</trkpt>
+	<trkpt lat="38.8865357" lon="-3.7146929" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:21Z</time>
+		<name>247682450</name>
+	</trkpt>
+	<trkpt lat="38.8869606" lon="-3.7152376" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:22Z</time>
+		<name>247682452</name>
+	</trkpt>
+	<trkpt lat="38.8874268" lon="-3.7157157" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:23Z</time>
+		<name>1005569408</name>
+	</trkpt>
+	<trkpt lat="38.887854" lon="-3.7161895" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:24Z</time>
+		<name>2054262656</name>
+	</trkpt>
+	<trkpt lat="38.8880784" lon="-3.71643" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:25Z</time>
+		<name>2051495834</name>
+	</trkpt>
+	<trkpt lat="38.8884261" lon="-3.7167157" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:26Z</time>
+		<name>247682453</name>
+	</trkpt>
+	<trkpt lat="38.8884025" lon="-3.7168111" >
+		<ele>0</ele>
+		<time>2018-11-22T11:50:27Z</time>
+		<name>2656970826</name>
+	</trkpt>
+</trk> 
+</gpx>
