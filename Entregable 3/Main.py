@@ -33,16 +33,10 @@ def calcularF(estrategia, coste, profundidad, nodoActual,nodoSucesor,costeaccion
     elif estrategia == VORAZ:
         return heuristica(nodoSucesor)
     elif estrategia == A:
-        return float(coste) + float(heuristica(estadoActual))
-        # if heuristica(estadoActual) <= costeaccion + heuristica(nodoSucesor):
-        #     return float(costeaccion) + float(heuristica(estadoActual))
-        # else:
-        #     return 0
+        return coste + heuristica(nodoSucesor)
 
 def creaListaNodosArbol(listaSucesiones, nodoActual, profMax, estrategia):
     listNodosArbol = []
-    
-    
     for sucesion in listaSucesiones:
         profundidad = nodoActual.profundidad + 1
         if profundidad <= profMax:
@@ -56,20 +50,13 @@ def creaListaNodosArbol(listaSucesiones, nodoActual, profMax, estrategia):
             nodoNuevo = NodoArbol(nodoActual, estadoSucesor, profundidad, costeCamino, f,costeAccion)
             listNodosArbol.append(nodoNuevo)
     return listNodosArbol
-
-def recorreNodoPadre(nodo):
-    if nodo != None:
-        recorreNodoPadre(nodo.nodoPadre)
-        print('\nEstoy en ' + nodo.estado.nodoActual + " tengo que visitar" +
-              str(nodo.estado.listaPendientes))
-        print("F->"+str(nodo.f) +"\n")
-        print("Accion"+nodo.accion +"\n")
         
 def print_solution(Nodos):
     for nodo in Nodos:
         print(str(nodo.accion))
         print('Estoy en ' + nodo.estado.nodoActual + " tengo que visitar" + str(nodo.estado.listaPendientes)+'\n')
 #EJERCICIO C
+
 def crearNodoSolucion(nodoAct):
     NodosSolucion = []
     NodosSolucion.append(nodoAct)
@@ -100,24 +87,18 @@ def print_Sucesor(estado):
         print("accion:" +str(sucesion[0]))
         print("nuevo estado:" +str(sucesion[1].listaPendientes))
         print("coste:" +str(sucesion[2]))
+
 def creaSolucion(nodoActual, numNodos):
-    #recorreNodoPadre(nodoActual)
-    #print("-------EJERCICIO B")
     a=crearNodoSolucion(nodoActual)
-    print('Nodos introducidos en la frontera-->' + str(numNodos))
+    print('Nodos introducidos generados-->' + str(numNodos))
     print('Profundidad-->' + str(nodoActual.profundidad))
     print('Costo-->' + str(nodoActual.costoCamino))
     return a
 
 def busquedaAcotada(prob, estrategia, profMax):
     frontera = Frontera()
-    estadoInicial=prob.estadoInicial
-
-    if estrategia==A:
-        nodoInicial = NodoArbol(None,estadoInicial,0,heuristica(estadoInicial),heuristica(estadoInicial)+heuristica(estadoInicial),0)
-    else:   
-        nodoInicial = NodoArbol(None, estadoInicial, 0, 0, 0,0)
-    #maybe hay que cambiar la manera en la que se inicializa el nodoinicial por cada estrategia
+    estadoInicial=prob.estadoInicial  
+    nodoInicial = NodoArbol(None, estadoInicial, 0, 0, 0,0)
     listVisitados = []
     frontera.insert(nodoInicial)
     solucion = False
@@ -168,10 +149,10 @@ def menu():
     print("\t 6 - Busqueda por A*")
     print("\t 9 - Salir")
 
-data = open("Anchuras.json", "r")
+data = open("Almagro.json", "r")
 datos = data.read()
 prob = Problema(json.loads(datos))
-# prueba=Estado('4331431334', ['4331489575', '4331489683', '4762868814'])
+# prueba=Estado('4331431346',['4331489575', '4331489683', '4762868814'])
 # print(heuristica(prueba))
 # e=Estado("2255062913",['2272379834', '2272379840'])
 

@@ -13,6 +13,6 @@ class NodoArbol:
             self.nodoPadre=nodoPadre
             self.costoCamino=costoCamino
             self.profundidad=profundidad
-            self.accion = "     "+nodoPadre.estado.nodoActual + "->" + self.estado.nodoActual + " | " +" f:"+ str(f) + " p: " + str(profundidad) + " coste Camino: "  + str(costoCamino)+" |"
+            self.accion = "     "+nodoPadre.estado.nodoActual + "->" + self.estado.nodoActual + " | " +" f:"+ str(self.f) + " p: " + str(profundidad) + " coste Camino: "  + str(costoCamino)+" |"
         
 
