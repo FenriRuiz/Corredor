@@ -1,7 +1,7 @@
 import json
 import hashlib
 import sys
-from EspacioEstados import EspacioEstados
+
 
 
 lista = ["1113332475","8326059362","163888636","1005669685","1911227547"]

@@ -21,7 +21,6 @@ def heuristica(nodoSucesor):
     return min(list_distancias) 
 
 def calcularF(estrategia, coste, profundidad, nodoActual,nodoSucesor,costeaccion):
-    estadoActual=nodoActual.estado
     if estrategia == DFS:
         return -float(profundidad)
     if estrategia == DFS_IT:
@@ -65,20 +64,10 @@ def crearNodoSolucion(nodoAct):
         NodosSolucion.append(nodo)
         nodo=nodo.nodoPadre
     NodosSolucion.append(nodo)
-    # distanciaA=0
-    # NodosPares=[]
-    # cont=0
+
     NodosSolucion.reverse()
     print_solution(NodosSolucion)
-    # for x in NodosSolucion:
 
-    #     if ((int(x.estado.nodoActual)%2) == 0):
-    #         NodosPares.append(x)
-    #         distanciaA=distanciaA+(NodosSolucion[cont+1].costoCamino-NodosSolucion[cont].costoCamino)
-    #     cont+=1
-    # print("-------EJERCICIO C")
-    # print("Numero total de nodos con id par "+str(len(NodosPares)))
-    # print("distancia de nodos consecutivos "+str(distanciaA))
 
     return NodosSolucion
 def print_Sucesor(estado):
@@ -102,7 +91,7 @@ def busquedaAcotada(prob, estrategia, profMax):
     listVisitados = []
     frontera.insert(nodoInicial)
     solucion = False
-    cont_nodosFrontera=0#Ejercicio B
+
     cont_nodosGenerados=0
 
     while (solucion == False) and (not frontera.isEmpty()):
@@ -122,7 +111,7 @@ def busquedaAcotada(prob, estrategia, profMax):
                     else:
                         try:
                             frontera.insert(n)
-                            cont_nodosFrontera+=1
+
                         except Exception:
                             print("Error en la frontera")
                     
@@ -149,25 +138,10 @@ def menu():
     print("\t 6 - Busqueda por A*")
     print("\t 9 - Salir")
 
-data = open("Almagro.json", "r")
+data = open("ArenalesdeSanGregorio.json", "r")
 datos = data.read()
 prob = Problema(json.loads(datos))
-# prueba=Estado('4331431346',['4331489575', '4331489683', '4762868814'])
-# print(heuristica(prueba))
-# e=Estado("2255062913",['2272379834', '2272379840'])
 
-# print_Sucesor(e)
-
-# print("-------EJERCICIO A")
-
-
-# estadoA=Estado("326059720",["326059362"])
-# sucesoresA = prob.espacioEstados.sucesores(estadoA)
-# for x in sucesoresA:
-#     print(x[0])
-#     print(str(x[1].nodoActual))
-#     print(str(x[1].listaPendientes))
-#     print(str(x[2]))
 print("MENU")
 while True:
     menu()
