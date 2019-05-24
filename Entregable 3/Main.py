@@ -110,6 +110,7 @@ def busquedaAcotada(prob, estrategia, profMax):
                         pass
                     else:
                         try:
+                            
                             frontera.insert(n)
 
                         except Exception:
@@ -138,9 +139,34 @@ def menu():
     print("\t 6 - Busqueda por A*")
     print("\t 9 - Salir")
 
-data = open("ArenalesdeSanGregorio.json", "r")
+def comprobarAristas(aristas):
+    for x in aristas:
+        for ady in aristas[x]:
+            pass
+
+def comprobar_par(nodos):
+    NodosPares=[]
+    NodosImpares=[]
+    contAristas=0
+    for x in nodos:
+        if ((int(x)%2) == 0):
+            NodosPares.append(x)
+        else:
+            NodosImpares.append(x)
+        contAristas=contAristas+prob.espacioEstados.graph.adyacentesNodo(x).__len__()
+    print("Numero total de nodos  "+str(len(nodos)))
+    print("Numero total de nodos con id par "+str(len(NodosPares)))
+    print("Numero total de nodos con id par "+str(len(NodosImpares)))
+    print("Numero total de aristas  "+str(contAristas))
+    comprobarAristas(prob.espacioEstados.graph.graph._adj)
+
+data = open("Entregable 3/data/Puertollano.json", "r")
 datos = data.read()
 prob = Problema(json.loads(datos))
+
+print("----------ejericicoA\n")
+print(prob.espacioEstados.graph.nodes.__len__())
+comprobar_par(prob.espacioEstados.graph.graph.nodes._nodes)
 
 print("MENU")
 while True:

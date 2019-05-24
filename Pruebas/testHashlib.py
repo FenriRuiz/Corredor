@@ -2,16 +2,15 @@ import json
 import hashlib
 import sys
 
+#     "node": "4331431334", 
+#     "listNodes": ["4331489575", "4331489683", "4762868814"], 
+#     "id": "22bd7e5aa38ce7e9f8926fbd71383989"}}
 
-
-lista = ["1113332475","8326059362","163888636","1005669685","1911227547"]
-node = "1113332475"
+lista =  ["1675756709", "1809811393"]
+node = "1675746635"
 h = hashlib.md5() 
-h.update("2140711440".encode())
-
-es=EspacioEstados()
-
-es.sucesores
-
+h.update(node.encode())
+for nodo in lista:
+    h.update(nodo.encode())
 
 print(h.hexdigest())    
